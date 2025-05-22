@@ -1,0 +1,40 @@
+.root {
+  all: unset;
+  background-color: transparent;
+  border: 2px solid #649FBF;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.root:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.root:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.indicator {
+  color: #649FBF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  margin-left: 10px;
+  font-size: 16px;
+  color: #272F33;
+  cursor: pointer;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+}

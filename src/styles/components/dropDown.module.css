@@ -1,0 +1,62 @@
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.trigger {
+  all: unset;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #649FBF;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  color: #272F33;
+  font-size: 16px;
+  padding: 8px 12px;
+}
+
+.arrow {
+  transition: transform 0.2s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.options {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #649FBF;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.option {
+  all: unset;
+  width: 100%;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #272F33;
+  display: block;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-weight: 500;
+  color: #272F33;
+  font-size: 16px;
+}

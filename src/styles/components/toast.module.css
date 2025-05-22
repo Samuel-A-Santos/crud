@@ -1,0 +1,63 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.toast {
+  background: #DBDBDB ;
+  border-radius: 16px;
+  padding: 28px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+}
+
+.message {
+  font-size: 20px;
+  font-weight: bold;
+  color: #272F33;
+  text-align: start;
+  padding-bottom: 5px;
+}
+
+.closeButton {
+  all: unset;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  cursor: pointer;
+  color: #649FBF;
+}
+
+.okButton {
+  all: unset;
+  width: 100%;
+  background-color: transparent;
+  color: #649FBF;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

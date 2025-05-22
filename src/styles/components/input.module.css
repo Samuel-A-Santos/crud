@@ -1,0 +1,23 @@
+.inputContainer {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.label {
+  font-weight: 500;
+  color: #272F33;
+  font-size: 16px;
+}
+
+.input {
+  padding: 8.5px 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #649FBF;
+  width: 100%;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}

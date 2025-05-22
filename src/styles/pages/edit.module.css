@@ -1,0 +1,110 @@
+.description {
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 40%;
+  padding: 24px;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+}
+
+.description span {
+  font-size: 16px;
+  color: #959595;
+}
+
+.description img {
+  width: 142px;
+  height: 159px;
+}
+
+.content {
+    display: flex;
+    gap: 32px;
+}
+
+.formContainer {
+  background-color: #fff;
+  border-radius: 20px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.formHeaderBackground {
+  background-color: #649FBF;
+  width: 100%;
+}
+
+.formHeaderContent {
+  padding: 0 24px;
+}
+
+.title {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.customButton  {
+  margin: 24px;
+  padding: 24px 16px;
+  border-radius: 8px;
+  background-color: #fff;
+  border: none;
+  border: 1px solid #649FBF;
+  color: #649FBF;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+  margin-bottom: 32px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 24px;
+}
+
+.employeeListContainer {
+  padding: 24px;
+}
+
+.switchContainer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: end;
+  padding: 24px;
+}
+
+.stepsButtonsContainer {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.stepsButtonsContainer button {
+  border-radius: 10px;
+  background-color: #649FBF;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 32px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.stepsButtonsContainer button:disabled {
+  background-color: #959595;
+  color: #fff;
+}
+
