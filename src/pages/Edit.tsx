@@ -1,37 +1,115 @@
-import { useState } from "react";
-import { Header } from "../components/header";
-import styles from "../styles/pages/edit.module.css";
+import { useEffect, useState } from "react";
 import foto from "../assets/Foto.svg";
+import { Header } from "../components/header";
 import { Button } from "../components/button";
 import { EmployeeList } from "../components/employeeList";
-import { useEmployees } from "../hooks/useEmployee";
 import { Toast } from "../components/toast";
 import { Switch } from "../components/switch";
+import { AddEmployee } from "../components/addEmployee";
+import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
+import { setStepCompleted, nextStep, previousStep } from "../store/appSlice";
+import {
+  fetchEmployees,
+  createEmployeeThunk,
+  updateEmployeeThunk,
+  deleteEmployeeThunk,
+} from "../store/employeeThunks";
+import type { Employee } from "../types/employee";
+import styles from "../styles/pages/edit.module.css";
 
 export const Edit = () => {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [isStepCompleted, setIsStepCompleted] = useState(false);
+  const dispatch = useAppDispatch();
 
-  const { employees, deleteEmployee } = useEmployees();
+  const { currentStep, isStepCompleted } = useAppSelector((state) => state.app);
+  const { employees, loading } = useAppSelector((state) => state.employees);
+
+  const [isAddingEmployee, setIsAddingEmployee] = useState(false);
+  const [editingEmployee, setEditingEmployee] = useState<Employee | null>(null);
   const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState(
+    "Usuário excluído com sucesso!"
+  );
+  const [showOnlyActive, setShowOnlyActive] = useState(false);
+
+  useEffect(() => {
+    dispatch(fetchEmployees());
+  }, [dispatch]);
 
   const handleNextStep = () => {
-    if (isStepCompleted && currentStep < 9) {
-      setCurrentStep((prev) => prev + 1);
-      setIsStepCompleted(false);
-    }
+    dispatch(nextStep());
   };
 
   const handlePreviousStep = () => {
-    if (currentStep > 1) {
-      setCurrentStep((prev) => prev - 1);
-    }
+    dispatch(previousStep());
   };
 
   const handleDelete = (id: string) => {
-    deleteEmployee(id);
-    setShowToast(true);
+    dispatch(deleteEmployeeThunk(id))
+      .then(() => {
+        setToastMessage("Usuário excluído com sucesso!");
+        setShowToast(true);
+      })
+      .catch(() => {
+        setToastMessage("Erro ao excluir usuário!");
+        setShowToast(true);
+      });
   };
+
+  const handleAddEmployee = () => {
+    setEditingEmployee(null);
+    setIsAddingEmployee(true);
+  };
+
+  const handleEditEmployee = (id: string) => {
+    const employee = employees.find((e) => e.id === id) || null;
+
+    // Remove health certificate logic and just set the employee directly
+    setEditingEmployee(employee);
+    setIsAddingEmployee(true);
+  };
+
+  const handleBackToList = () => {
+    setIsAddingEmployee(false);
+    setEditingEmployee(null);
+  };
+
+  const handleSaveEmployee = (employeeData: Employee) => {
+    // Remove health certificate from the data or set to null
+    const employeeToSave = {
+      ...employeeData,
+      healthCertificate: null,
+    };
+
+    if (editingEmployee) {
+      dispatch(updateEmployeeThunk(employeeToSave))
+        .then(() => {
+          setToastMessage("Usuário atualizado com sucesso!");
+          setShowToast(true);
+        })
+        .catch(() => {
+          setToastMessage("Erro ao atualizar usuário!");
+          setShowToast(true);
+        });
+    } else {
+      dispatch(createEmployeeThunk(employeeToSave))
+        .then(() => {
+          setToastMessage("Usuário adicionado com sucesso!");
+          setShowToast(true);
+        })
+        .catch(() => {
+          setToastMessage("Erro ao adicionar usuário!");
+          setShowToast(true);
+        });
+    }
+
+    setIsAddingEmployee(false);
+  };
+
+  const filteredEmployees = showOnlyActive
+    ? employees.filter((emp) => emp.isActive)
+    : employees;
+
+  const activeEmployees = employees.filter((emp) => emp.isActive);
 
   return (
     <div className={styles.container}>
@@ -52,59 +130,120 @@ export const Edit = () => {
         <div className={styles.formContainer}>
           <div className={styles.formHeaderBackground}>
             <div className={styles.formHeaderContent}>
-              <h1 className={styles.title}>Funcionário(s)</h1>
+              {isAddingEmployee ? (
+                <>
+                  <button
+                    onClick={handleBackToList}
+                    className={styles.backButton}
+                  >
+                    ←
+                  </button>
+                  <h1 className={styles.title}>
+                    {editingEmployee
+                      ? "Editar Funcionário"
+                      : "Adicionar Funcionário"}
+                  </h1>
+                </>
+              ) : (
+                <>
+                  <h1 className={styles.title}>Funcionário(s)</h1>
+                </>
+              )}
             </div>
-          </div>
-          <button className={styles.customButton}>
-            + Adicionar Funcionário
-          </button>
-          <div className={styles.buttonsContainer}>
-            <div className={styles.buttonGroup}>
-              <Button>Ver apenas ativos</Button>
-              <Button>Ver apenas ativos</Button>
-            </div>
-            <p>Ativos 4/5</p>
           </div>
 
-          <Toast
-            message="Usuário excluído com sucesso!"
-            isOpen={showToast}
-            onClose={() => setShowToast(false)}
-          />
-          <div className={styles.employeeListContainer}>
-            <EmployeeList employees={employees} onDelete={handleDelete} />
-          </div>
-          <div className={styles.switchContainer}>
-            <span>A etapa está concluída? </span>
-            <Switch
-              checked={isStepCompleted}
-              onCheckedChange={setIsStepCompleted}
-              checkedLabel="Sim"
-              uncheckedLabel="Não"
-            />
-          </div>
+          {!isAddingEmployee ? (
+            <>
+              <button
+                className={styles.customButton}
+                onClick={handleAddEmployee}
+              >
+                + Adicionar Funcionário
+              </button>
+              <div className={styles.buttonsContainer}>
+                <div className={styles.buttonGroup}>
+                  <Button
+                    onClick={() => setShowOnlyActive(true)}
+                    disabled={showOnlyActive}
+                  >
+                    Ver apenas ativos
+                  </Button>
+                  <Button
+                    onClick={() => setShowOnlyActive(false)}
+                    disabled={!showOnlyActive}
+                  >
+                    Limpar filtros
+                  </Button>
+                </div>
+                <p>
+                  Ativos {activeEmployees.length}/{employees.length}
+                </p>
+              </div>
+
+              <Toast
+                message={toastMessage}
+                isOpen={showToast}
+                onClose={() => setShowToast(false)}
+              />
+
+              {loading === "pending" ? (
+                <div className={styles.loadingContainer}>Carregando...</div>
+              ) : (
+                <div className={styles.employeeListContainer}>
+                  <EmployeeList
+                    employees={filteredEmployees}
+                    onEdit={handleEditEmployee}
+                    onDelete={handleDelete}
+                  />
+                </div>
+              )}
+
+              <div className={styles.switchContainer}>
+                <span>A etapa está concluída? </span>
+                <Switch
+                  checked={isStepCompleted}
+                  onCheckedChange={(checked) =>
+                    dispatch(setStepCompleted(checked))
+                  }
+                  checkedLabel="Sim"
+                  uncheckedLabel="Não"
+                />
+              </div>
+            </>
+          ) : (
+            <div className={styles.addEmployeeForm}>
+              <AddEmployee
+                onSave={handleSaveEmployee}
+                onCancel={handleBackToList}
+                employee={editingEmployee}
+              />
+            </div>
+          )}
         </div>
       </main>
-      <div className={styles.stepsButtonsContainer}>
-        <button
-          className={`${styles.button} ${
-            currentStep === 1 ? styles.buttonDisabled : ""
-          }`}
-          onClick={handlePreviousStep}
-          disabled={currentStep === 1}
-        >
-          Passo anterior
-        </button>
-        <button
-          className={`${styles.button} ${
-            !isStepCompleted ? styles.buttonDisabled : ""
-          }`}
-          onClick={handleNextStep}
-          disabled={!isStepCompleted}
-        >
-          Próximo passo
-        </button>
-      </div>
+
+      {!isAddingEmployee && (
+        <div className={styles.stepsButtonsContainer}>
+          <button
+            className={`${styles.button} ${
+              currentStep === 1 ? styles.buttonDisabled : ""
+            }`}
+            onClick={handlePreviousStep}
+            disabled={currentStep === 1}
+          >
+            Passo anterior
+          </button>
+          <button
+            className={`${styles.button} ${
+              !isStepCompleted ? styles.buttonDisabled : ""
+            }`}
+            onClick={handleNextStep}
+            disabled={!isStepCompleted}
+          >
+            Próximo passo
+          </button>
+        </div>
+      )}
     </div>
   );
 };

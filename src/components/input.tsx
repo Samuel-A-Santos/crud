@@ -3,17 +3,19 @@ import type { ChangeEvent } from 'react';
 import styles from '../styles/components/input.module.css';
 
 interface InputProps {
-  label?: string;
-  placeholder?: string;
+  label: string;
   value?: string;
   onChange?: (value: string) => void;
+  error?: string;
+  placeholder?: string;
 }
 
 export const Input: React.FC<InputProps> = ({
   label,
-  placeholder = '',
   value: controlledValue,
   onChange,
+  error,
+  placeholder = '',
 }) => {
   const [uncontrolledValue, setUncontrolledValue] = useState('');
 
@@ -30,18 +32,15 @@ export const Input: React.FC<InputProps> = ({
 
   return (
     <div className={styles.inputContainer}>
-      {label && (
-        <label className={styles.label}>
-          {label}
-        </label>
-      )}
+      <label className={styles.label}>{label}</label>
       <input
         type="text"
         value={value}
         placeholder={placeholder}
         onChange={handleChange}
-        className={styles.input}
+        className={`${styles.input} ${error ? styles.inputError : ''}`}
       />
+      {error && <span className={styles.errorMessage}>{error}</span>}
     </div>
   );
 };

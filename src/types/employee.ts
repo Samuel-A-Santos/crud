@@ -1,8 +1,19 @@
 export interface Employee {
   id: string;
-  name: string;
-  registration: string;
-  activeStatus: string;
-  position: string;
   isActive: boolean;
+  name: string;
+  gender: "feminino" | "masculino" | null;
+  cpf: string;
+  birthDate: string;
+  rg: string;
+  role: string;
+  doesntUseEPI: boolean;
+  // healthCertificate?: null;
+  epis: EPI[];
+}
+
+export interface EPI {
+  activity: string;
+  type: string;
+  caNumber: string;
 }

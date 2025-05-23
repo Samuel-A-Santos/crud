@@ -46,9 +46,9 @@ export const EmployeeList = ({ employees, onEdit, onDelete }: EmployeeListProps)
               <header className={styles.header}>
                 <h2>{employee.name}</h2>
                 <ul className={styles.tags}>
-                  <li><span className={styles.tag}>{employee.registration}</span></li>
+                  <li><span className={styles.tag}>{employee.cpf}</span></li>
                   <li><span className={styles.tag}>{employee.isActive ? 'Ativo' : 'Inativo'}</span></li>
-                  <li><span className={styles.tag}>{employee.position}</span></li>
+                  <li><span className={styles.tag}>{employee.role}</span></li>
                 </ul>
               </header>
             </div>

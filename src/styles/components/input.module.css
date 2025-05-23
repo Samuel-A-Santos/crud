@@ -1,20 +1,21 @@
 .inputContainer {
-    display: flex;
-    gap: 8px;
-    flex-direction: column;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
 }
 
 .label {
   font-weight: 500;
-  color: #272F33;
+  color: #272f33;
   font-size: 16px;
 }
 
 .input {
-  padding: 8.5px 12px;
+  height: 36px;
+  padding: 0 12px;
   font-size: 16px;
   border-radius: 10px;
-  border: 1px solid #649FBF;
+  border: 1px solid #649fbf;
   width: 100%;
   outline: none;
   appearance: none;

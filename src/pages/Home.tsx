@@ -6,8 +6,8 @@ import { Switch } from "../components/switch";
 import { DoubleCheck } from "../components/doubleCheck";
 import { DropDown } from "../components/dropDown";
 import { Toast } from "../components/toast";
-import { EmployeeList } from "../components/employeeList";
-import { useEmployees } from "../hooks/useEmployee";
+// import { EmployeeList } from "../components/employeeList";
+// import { useEmployees } from "../hooks/useEmployee";
 
 export const Home = () => {
   const [checked, setChecked] = useState(false);
@@ -33,15 +33,15 @@ export const Home = () => {
     setShowToast(true);
   };
 
-  const { employees, updateEmployee, deleteEmployee } = useEmployees();
+  // const { employees, updateEmployee, deleteEmployee } = useEmployees();
 
-  const handleEdit = (id: string) => {
-    console.log('Edit employee:', id);
-  };
+  // const handleEdit = (id: string) => {
+  //   console.log('Edit employee:', id);
+  // };
 
-  const handleDelete = (id: string) => {
-    deleteEmployee(id);
-  };
+  // const handleDelete = (id: string) => {
+  //   deleteEmployee(id);
+  // };
 
   return (
     <div
@@ -88,11 +88,11 @@ export const Home = () => {
       />
 
       <h1>Funcionários</h1>
-      <EmployeeList 
+      {/* <EmployeeList 
         employees={employees}
         onEdit={handleEdit}
         onDelete={handleDelete}
-      />
+      /> */}
     </div>
   );
 };

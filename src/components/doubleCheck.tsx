@@ -4,11 +4,12 @@ import styles from '../styles/components/doubleCheck.module.css';
 type Gender = 'feminino' | 'masculino' | null;
 
 interface DoubleCheckProps {
-  onChange?: (gender: Gender) => void;
-  value?: Gender;
+  value: Gender;
+  onChange: (value: Gender) => void;
+  error?: string;
 }
 
-export const DoubleCheck: React.FC<DoubleCheckProps> = ({ onChange, value: controlledValue }) => {
+export const DoubleCheck: React.FC<DoubleCheckProps> = ({ value: controlledValue, onChange, error }) => {
   const [uncontrolledValue, setUncontrolledValue] = useState<Gender>(null);
   
   const value = controlledValue !== undefined ? controlledValue : uncontrolledValue;
@@ -44,6 +45,7 @@ export const DoubleCheck: React.FC<DoubleCheckProps> = ({ onChange, value: contr
         </div>
         Masculino
       </button>
+      {error && <span className={styles.errorMessage}>{error}</span>}
     </div>
   );
 };

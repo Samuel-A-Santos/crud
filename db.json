@@ -1,0 +1,66 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "isActive": true,
+      "name": "Mucao!",
+      "gender": "feminino",
+      "cpf": "123.412.312-31",
+      "birthDate": "12/03/2003",
+      "rg": "12.312.313-2",
+      "role": "Cargo 2",
+      "doesntUseEPI": false,
+      "epis": [
+        {
+          "activity": "Atividade 1",
+          "type": "Calçado de segurança",
+          "caNumber": "123456"
+        },
+        {
+          "activity": "Atividade 2",
+          "type": "Capacete",
+          "caNumber": "123"
+        }
+      ],
+      "healthCertificate": null
+    },
+    {
+      "id": "2",
+      "isActive": true,
+      "name": "Regina Elisa Souza",
+      "gender": "feminino",
+      "cpf": "987.654.321-00",
+      "birthDate": "1990-07-22",
+      "rg": "98.765.432-1",
+      "role": "Cargo 3",
+      "doesntUseEPI": false,
+      "epis": [
+        {
+          "activity": "Atividade 3",
+          "type": "Capacete",
+          "caNumber": "654321"
+        }
+      ],
+      "healthCertificate": null
+    },
+    {
+      "id": "4",
+      "isActive": false,
+      "name": "Ana Bispo dos Santos",
+      "gender": "feminino",
+      "cpf": "789.123.456-00",
+      "birthDate": "1992-05-18",
+      "rg": "78.912.345-6",
+      "role": "Cargo 1",
+      "doesntUseEPI": false,
+      "epis": [
+        {
+          "activity": "Atividade 1",
+          "type": "Luvas",
+          "caNumber": "789012"
+        }
+      ],
+      "healthCertificate": null
+    }
+  ]
+}
