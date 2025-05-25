@@ -31,11 +31,11 @@ A aplicação possui duas partes: o front-end React e um servidor de API mock.
 
    2. Para iniciar a aplicação do front-end
 
-      ```bash
+   ```bash
       npm run dev
-   ```
 
-Após é só abrir em algum navegador na url: http://localhost:5173/
+      Após isso é só abrir em algum navegador na url: http://localhost:5173/
+   ```
 
 🧩 Funcionalidades:
 
