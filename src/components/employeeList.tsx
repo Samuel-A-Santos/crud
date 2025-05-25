@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from '../styles/components/employeeList.module.css';
-import type { Employee } from '../types/employee';
+import type { Employee } from '../types/types';
 
 interface PopupMenuProps {
   onEdit: () => void;

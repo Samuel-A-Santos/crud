@@ -1,66 +1,104 @@
 {
   "employees": [
     {
-      "id": "1",
+      "id": "09c49169-ef3a-4785-b221-4c9bbbe375f9",
       "isActive": true,
-      "name": "Samuel",
-      "gender": "feminino",
-      "cpf": "132.132.132-13",
-      "birthDate": "12/03/2003",
-      "rg": "12.312.313-2",
-      "role": "Cargo 2",
-      "doesntUseEPI": false,
-      "epis": [
-        {
-          "activity": "Atividade 2",
-          "type": "Capacete",
-          "caNumber": "12341"
-        }
-      ],
-      "healthCertificate": null
-    },
-    {
-      "id": "2",
-      "isActive": true,
-      "name": "Regina Elisa Souza",
-      "gender": "feminino",
-      "cpf": "987.654.321-00",
-      "birthDate": "12/02/2001",
-      "rg": "98.765.432-1",
-      "role": "Cargo 3",
-      "doesntUseEPI": false,
-      "epis": [
-        {
-          "activity": "Atividade 3",
-          "type": "Capacete",
-          "caNumber": "654321"
-        }
-      ],
-      "healthCertificate": null
-    },
-    {
-      "id": "26c00cb8-5af0-4bab-8a2a-6ad44e1d371a",
-      "isActive": false,
-      "name": "Lidia",
-      "gender": "feminino",
-      "cpf": "123.860.725-31",
-      "birthDate": "05/09/2000",
-      "rg": "12.314.123-1",
+      "name": "Gabriel",
+      "gender": "masculino",
+      "cpf": "123.456.999-10",
+      "birthDate": "26/04/2004",
+      "rg": "12.311.144-4",
       "role": "Cargo 1",
       "doesntUseEPI": false,
       "epis": [
         {
-          "activity": "Atividade 2",
-          "type": "Capacete",
-          "caNumber": "1421"
+          "activity": "Atividade 1",
+          "type": "Luvas",
+          "caNumber": "1312"
         },
+        {
+          "activity": "Atividade 3",
+          "type": "Calçado de segurança",
+          "caNumber": "123111"
+        }
+      ]
+    },
+    {
+      "id": "900714c9-3644-488b-91d3-2af7decf8fb0",
+      "isActive": true,
+      "name": "Pedro",
+      "gender": "masculino",
+      "cpf": "123.132.131-23",
+      "birthDate": "12/04/2001",
+      "rg": "12.313.213-2",
+      "role": "Cargo 2",
+      "doesntUseEPI": false,
+      "epis": [
+        {
+          "activity": "Atividade 3",
+          "type": "Calçado de segurança",
+          "caNumber": "1231"
+        }
+      ]
+    },
+    {
+      "id": "344c08ca-0f01-4a91-a126-97347d9f44ef",
+      "isActive": false,
+      "name": "Fernanda",
+      "gender": "feminino",
+      "cpf": "123.132.132-13",
+      "birthDate": "09/12/2000",
+      "rg": "12.313.112-2",
+      "role": "Cargo 1",
+      "doesntUseEPI": false,
+      "epis": [
         {
           "activity": "Atividade 1",
           "type": "Calçado de segurança",
-          "caNumber": "1332"
+          "caNumber": "12311"
+        },
+        {
+          "activity": "Atividade 2",
+          "type": "Luvas",
+          "caNumber": "11231"
+        }
+      ]
+    },
+    {
+      "id": "6388e287-6377-46e1-8c73-dc6d188a77df",
+      "isActive": true,
+      "name": "Samuel",
+      "gender": "masculino",
+      "cpf": "123.860.726-81",
+      "birthDate": "26/04/2004",
+      "rg": "19.417.170-1",
+      "role": "Cargo 1",
+      "doesntUseEPI": false,
+      "epis": [
+        {
+          "activity": "Atividade 1",
+          "type": "Calçado de segurança",
+          "caNumber": "1231"
+        },
+        {
+          "activity": "Atividade 1",
+          "type": "Capacete",
+          "caNumber": "1231"
         }
       ],
       "healthCertificate": null
+    },
+    {
+      "id": "2b795381-3016-4e75-a0ca-2e91002c0e33",
+      "isActive": false,
+      "name": "gaybriel",
+      "gender": "masculino",
+      "cpf": "123.112.312-31",
+      "birthDate": "13/12/2001",
+      "rg": "13.213.213-1",
+      "role": "Cargo 1",
+      "doesntUseEPI": true,
+      "epis": []
     }
   ]
 }

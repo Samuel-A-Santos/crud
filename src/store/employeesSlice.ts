@@ -1,7 +1,7 @@
 // src/store/employeesSlice.ts
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { Employee } from '../types/employee';
+import type { Employee } from '../types/types';
 
 interface EmployeesState {
   employees: Employee[];

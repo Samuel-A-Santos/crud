@@ -1,4 +1,4 @@
-import type { Employee, EPI } from '../components/addEmployee';
+import type { Employee, EPI } from '../types/types';
 
 export interface ValidationErrors {
   [key: string]: string;

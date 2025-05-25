@@ -1,4 +1,3 @@
-// src/store/employeeThunks.ts
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   fetchEmployees as fetchEmployeesApi,
@@ -14,7 +13,7 @@ import {
   setLoading,
   setError,
 } from "./employeesSlice";
-import type { Employee } from "../types/employee";
+import type { Employee } from "../types/types";
 
 export const fetchEmployees = createAsyncThunk(
   "employees/fetchEmployees",

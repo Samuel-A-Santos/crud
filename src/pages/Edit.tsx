@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
-import foto from "../assets/Foto.svg";
 import { Header } from "../components/header";
-import { Button } from "../components/button";
-import { EmployeeList } from "../components/employeeList";
-import { Toast } from "../components/toast";
-import { Switch } from "../components/switch";
 import { AddEmployee } from "../components/addEmployee";
 import { EmptyPage } from "../components/emptyPage";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
@@ -15,8 +10,14 @@ import {
   updateEmployeeThunk,
   deleteEmployeeThunk,
 } from "../store/employeeThunks";
-import type { Employee } from "../types/employee";
+import type { Employee } from "../types/types";
 import styles from "../styles/pages/edit.module.css";
+import { PageDescription } from "./EditComponents/PageDescription";
+import { FormAreaHeader } from "./EditComponents/FormAreaHeader";
+import { EmployeeListActions } from "./EditComponents/EmployeeListActions";
+import { EmployeeListSection } from "./EditComponents/EmployeeListSection";
+import { StepCompletionSwitch } from "./EditComponents/StepCompletionSwitch";
+import { PageNavigation } from "./EditComponents/PageNavigation";
 
 export const Edit = () => {
   const dispatch = useAppDispatch();
@@ -46,6 +47,7 @@ export const Edit = () => {
 
   const handleDelete = (id: string) => {
     dispatch(deleteEmployeeThunk(id))
+      .unwrap()
       .then(() => {
         setToastMessage("Usuário excluído com sucesso!");
         setShowToast(true);
@@ -56,14 +58,13 @@ export const Edit = () => {
       });
   };
 
-  const handleAddEmployee = () => {
+  const handleAddEmployeeClick = () => {
     setEditingEmployee(null);
     setIsAddingEmployee(true);
   };
 
-  const handleEditEmployee = (id: string) => {
+  const handleEditEmployeeClick = (id: string) => {
     const employee = employees.find((e) => e.id === id) || null;
-
     setEditingEmployee(employee);
     setIsAddingEmployee(true);
   };
@@ -76,147 +77,84 @@ export const Edit = () => {
   const handleSaveEmployee = (employeeData: Employee) => {
     const employeeToSave = {
       ...employeeData,
-      healthCertificate: null,
     };
 
-    if (editingEmployee) {
-      dispatch(updateEmployeeThunk(employeeToSave))
-        .then(() => {
-          setToastMessage("Usuário atualizado com sucesso!");
-          setShowToast(true);
-        })
-        .catch(() => {
-          setToastMessage("Erro ao atualizar usuário!");
-          setShowToast(true);
-        });
-    } else {
-      dispatch(createEmployeeThunk(employeeToSave))
-        .then(() => {
-          setToastMessage("Usuário adicionado com sucesso!");
-          setShowToast(true);
-        })
-        .catch(() => {
-          setToastMessage("Erro ao adicionar usuário!");
-          setShowToast(true);
-        });
-    }
+    const thunkAction = editingEmployee
+      ? updateEmployeeThunk(employeeToSave)
+      : createEmployeeThunk(employeeToSave);
 
-    setIsAddingEmployee(false);
+    const successMessage = editingEmployee
+      ? "Usuário atualizado com sucesso!"
+      : "Usuário adicionado com sucesso!";
+    const errorMessage = editingEmployee
+      ? "Erro ao atualizar usuário!"
+      : "Erro ao adicionar usuário!";
+
+    dispatch(thunkAction)
+      .unwrap()
+      .then(() => {
+        setToastMessage(successMessage);
+        setShowToast(true);
+        setIsAddingEmployee(false);
+        setEditingEmployee(null);
+      })
+      .catch(() => {
+        setToastMessage(errorMessage);
+        setShowToast(true);
+      });
   };
 
   const filteredEmployees = showOnlyActive
     ? employees.filter((emp) => emp.isActive)
     : employees;
 
-  const activeEmployees = employees.filter((emp) => emp.isActive);
+  const activeEmployeesCount = employees.filter((emp) => emp.isActive).length;
 
-  const renderContent = () => {
+  const renderMainContent = () => {
     if (currentStep > 1) {
       return <EmptyPage />;
     }
 
     return (
       <>
-        <div className={styles.description}>
-          <span>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-            repellendus velit soluta magnam optio in quos sed, beatae
-            exercitationem sequi facilis ducimus quas omnis dolorem, voluptas
-            nulla est molestiae enim. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Veritatis quasi distinctio tempore, quos ullam at
-            nemo, assumenda illo iure odit cumque laboriosam error et optio
-            ducimus. Nemo esse aut minima!
-          </span>
-          <img src={foto} alt="" />
-        </div>
+        <PageDescription />
         <div className={styles.formContainer}>
-          <div className={styles.formHeaderBackground}>
-            <div className={styles.formHeaderContent}>
-              {isAddingEmployee ? (
-                <>
-                  <button
-                    onClick={handleBackToList}
-                    className={styles.backButton}
-                  >
-                    ←
-                  </button>
-                  <h1 className={styles.title}>
-                    {editingEmployee
-                      ? "Editar Funcionário"
-                      : "Adicionar Funcionário"}
-                  </h1>
-                </>
-              ) : (
-                <>
-                  <h1 className={styles.title}>Funcionário(s)</h1>
-                </>
-              )}
-            </div>
-          </div>
+          <FormAreaHeader
+            isAddingEmployee={isAddingEmployee}
+            editingEmployee={!!editingEmployee}
+            onBackToList={handleBackToList}
+          />
 
           {!isAddingEmployee ? (
             <>
-              <button
-                className={styles.customButton}
-                onClick={handleAddEmployee}
-              >
-                + Adicionar Funcionário
-              </button>
-              <div className={styles.buttonsContainer}>
-                <div className={styles.buttonGroup}>
-                  <Button
-                    onClick={() => setShowOnlyActive(true)}
-                    disabled={showOnlyActive}
-                  >
-                    Ver apenas ativos
-                  </Button>
-                  <Button
-                    onClick={() => setShowOnlyActive(false)}
-                    disabled={!showOnlyActive}
-                  >
-                    Limpar filtros
-                  </Button>
-                </div>
-                <p>
-                  Ativos {activeEmployees.length}/{employees.length}
-                </p>
-              </div>
-
-              <Toast
-                message={toastMessage}
-                isOpen={showToast}
-                onClose={() => setShowToast(false)}
+              <EmployeeListActions
+                onAddEmployee={handleAddEmployeeClick}
+                onShowOnlyActive={setShowOnlyActive}
+                showOnlyActive={showOnlyActive}
+                activeEmployeesCount={activeEmployeesCount}
+                totalEmployeesCount={employees.length}
               />
-
-              {loading === "pending" ? (
-                <div className={styles.loadingContainer}>Carregando...</div>
-              ) : (
-                <div className={styles.employeeListContainer}>
-                  <EmployeeList
-                    employees={filteredEmployees}
-                    onEdit={handleEditEmployee}
-                    onDelete={handleDelete}
-                  />
-                </div>
-              )}
-
-              <div className={styles.switchContainer}>
-                <span>A etapa está concluída? </span>
-                <Switch
-                  checked={isStepCompleted}
-                  onCheckedChange={(checked) =>
-                    dispatch(setStepCompleted(checked))
-                  }
-                  checkedLabel="Sim"
-                  uncheckedLabel="Não"
-                />
-              </div>
+              <EmployeeListSection
+                toastMessage={toastMessage}
+                showToast={showToast}
+                onCloseToast={() => setShowToast(false)}
+                loadingStatus={loading}
+                employees={filteredEmployees}
+                onEditEmployee={handleEditEmployeeClick}
+                onDeleteEmployee={handleDelete}
+              />
+              <StepCompletionSwitch
+                isStepCompleted={isStepCompleted}
+                onStepCompletedChange={(checked) =>
+                  dispatch(setStepCompleted(checked))
+                }
+              />
             </>
           ) : (
             <div className={styles.addEmployeeForm}>
-              <AddEmployee
+              <AddEmployee 
                 onSave={handleSaveEmployee}
-                onCancel={handleBackToList}
+                onCancel={handleBackToList} 
                 employee={editingEmployee}
               />
             </div>
@@ -229,32 +167,15 @@ export const Edit = () => {
   return (
     <div className={styles.container}>
       <Header currentStep={currentStep} isStepCompleted={isStepCompleted} />
-      <main className={styles.content}>{renderContent()}</main>
-      {(!isAddingEmployee || currentStep > 1) && (
+      <main className={styles.content}>{renderMainContent()}</main>
+      {(!isAddingEmployee || currentStep > 1) && ( 
         <div className={styles.footerContainer}>
-          <div className={styles.stepsButtonsContainer}>
-            <div>
-              {currentStep > 1 && (
-                <button
-                  className={styles.buttonPrevious}
-                  onClick={handlePreviousStep}
-                >
-                  Passo anterior
-                </button>
-              )}
-              </div>
-              <div>
-              <button
-                className={`${styles.buttonNext} ${
-                  !isStepCompleted ? styles.buttonDisabled : ""
-                }`}
-                onClick={handleNextStep}
-                disabled={!isStepCompleted || currentStep === 9}
-              >
-                Próximo passo
-              </button>
-              </div>
-          </div>
+          <PageNavigation
+            currentStep={currentStep}
+            isStepCompleted={isStepCompleted}
+            onPreviousStep={handlePreviousStep}
+            onNextStep={handleNextStep}
+          />
         </div>
       )}
     </div>
