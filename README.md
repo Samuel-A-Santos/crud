@@ -1,59 +1,43 @@
-# 🦺 Sistema de Gerenciamento de EPI
+# Sea Technical Test
 
-Aplicativo **React + TypeScript** para gerenciamento de **EPI (Equipamento de Proteção Individual)** de funcionários. Utiliza **Ant Design** para a interface e conta com uma estrutura moderna baseada em Vite.
+Um teste tecnico para a empresa Sea Tecnologia
 
----
-
-## 🚀 Primeiros Passos
-
-### ✅ Pré-requisitos
-
-- **Node.js** 18.x ou superior
-- **npm** 9.x ou superior
+Aplicativo **React + TypeScript** para gerenciamento de **EPIS e de funcionários**. Utiliza **Ant Design** para a interface e conta com uma estrutura moderna baseada em Vite.
 
 ---
 
-## ⚙️ Instalação
+## Instruções para rodar o projeto
 
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/epi-manager.git
-   cd epi-manager
+   git clone git@github.com:Samuel-A-Santos/sea-test.git
+   cd sea-test
    Instale as dependências:
+   npm install 
    ```
 
-bash
-Copy
-Edit
-npm install
-▶️ Executando a Aplicação
+---
+
+## Executando a aplicação
+
 A aplicação possui duas partes: o front-end React e um servidor de API mock.
 
-Iniciar o servidor de API mock:
-bash
-Copy
-Edit
-npx json-server --watch db.json --port 3001
-Inicia o servidor de mock na porta 3001.
+   1. Para iniciar a API em json
 
-Iniciar a aplicação React (modo desenvolvimento):
-bash
-Copy
-Edit
-npm run dev
-Inicia a aplicação na porta 5173 com Hot Module Replacement (HMR).
+   ```bash
+      npx json-server --watch db.json --port 3001
+   ```
 
-🏗️ Compilação para Produção
-Para gerar os arquivos de produção:
+   2. Para iniciar a aplicação do front-end
 
-bash
-Copy
-Edit
-npm run build
-Os arquivos serão gerados no diretório dist.
+      ```bash
+      npm run dev
+   ```
 
-🧩 Funcionalidades
+Após é só abrir em algum navegador na url: http://localhost:5173/
+
+🧩 Funcionalidades:
 
 ✅ Gerenciamento de funcionários (ativo/inativo)
 
