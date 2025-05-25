@@ -1,4 +1,4 @@
-export type Gender = "feminino" | "masculino" | null;
+export type Gender = 'feminino' | 'masculino' | null;
 
 export interface EPI {
   activity: string;

@@ -7,13 +7,13 @@
   all: unset;
   width: 100%;
   background-color: white;
-  border: 1px solid #649FBF;
+  border: 1px solid #649fbf;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  color: #272F33;
+  color: #272f33;
   font-size: 16px;
   height: 36px;
   padding: 0 12px;
@@ -33,7 +33,7 @@
   left: 0;
   right: 0;
   background-color: white;
-  border: 1px solid #649FBF;
+  border: 1px solid #649fbf;
   border-radius: 8px;
   overflow: hidden;
   z-index: 10;
@@ -45,7 +45,7 @@
   padding: 8px 12px;
   cursor: pointer;
   font-size: 16px;
-  color: #272F33;
+  color: #272f33;
   display: block;
   box-sizing: border-box;
 }
@@ -58,6 +58,6 @@
 
 .label {
   font-weight: 500;
-  color: #272F33;
+  color: #272f33;
   font-size: 16px;
 }

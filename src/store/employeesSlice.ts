@@ -12,7 +12,7 @@ interface EmployeesState {
 const initialState: EmployeesState = {
   employees: [],
   loading: 'idle',
-  error: null
+  error: null,
 };
 
 export const employeesSlice = createSlice({
@@ -26,30 +26,37 @@ export const employeesSlice = createSlice({
       state.employees.push(action.payload);
     },
     updateEmployee: (state, action: PayloadAction<Employee>) => {
-      const index = state.employees.findIndex(emp => emp.id === action.payload.id);
+      const index = state.employees.findIndex(
+        emp => emp.id === action.payload.id
+      );
       if (index !== -1) {
         state.employees[index] = action.payload;
       }
     },
     deleteEmployee: (state, action: PayloadAction<string>) => {
-      state.employees = state.employees.filter(emp => emp.id !== action.payload);
+      state.employees = state.employees.filter(
+        emp => emp.id !== action.payload
+      );
     },
-    setLoading: (state, action: PayloadAction<'idle' | 'pending' | 'succeeded' | 'failed'>) => {
+    setLoading: (
+      state,
+      action: PayloadAction<'idle' | 'pending' | 'succeeded' | 'failed'>
+    ) => {
       state.loading = action.payload;
     },
     setError: (state, action: PayloadAction<string | null>) => {
       state.error = action.payload;
-    }
-  }
+    },
+  },
 });
 
-export const { 
-  setEmployees, 
-  addEmployee, 
-  updateEmployee, 
+export const {
+  setEmployees,
+  addEmployee,
+  updateEmployee,
   deleteEmployee,
   setLoading,
-  setError
+  setError,
 } = employeesSlice.actions;
 
 export default employeesSlice.reducer;

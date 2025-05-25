@@ -1,13 +1,13 @@
-import { Toast } from "../../components/toast"; 
-import { EmployeeList } from "../../components/employeeList"; 
-import type { Employee } from "../../types/types"; 
-import styles from "../../styles/pages/edit.module.css"; 
+import { Toast } from '../../components/toast';
+import { EmployeeList } from '../../components/employeeList';
+import type { Employee } from '../../types/types';
+import styles from '../../styles/pages/edit.module.css';
 
 interface EmployeeListSectionProps {
   toastMessage: string;
   showToast: boolean;
   onCloseToast: () => void;
-  loadingStatus: "idle" | "pending" | "succeeded" | "failed";
+  loadingStatus: 'idle' | 'pending' | 'succeeded' | 'failed';
   employees: Employee[];
   onEditEmployee: (id: string) => void;
   onDeleteEmployee: (id: string) => void;
@@ -24,12 +24,8 @@ export const EmployeeListSection: React.FC<EmployeeListSectionProps> = ({
 }) => {
   return (
     <>
-      <Toast
-        message={toastMessage}
-        isOpen={showToast}
-        onClose={onCloseToast}
-      />
-      {loadingStatus === "pending" ? (
+      <Toast message={toastMessage} isOpen={showToast} onClose={onCloseToast} />
+      {loadingStatus === 'pending' ? (
         <div className={styles.loadingContainer}>Carregando...</div>
       ) : (
         <div className={styles.employeeListContainer}>

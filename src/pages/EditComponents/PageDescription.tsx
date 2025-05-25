@@ -1,5 +1,5 @@
-import foto from "../../assets/Foto.svg";
-import styles from "../../styles/pages/edit.module.css";
+import foto from '../../assets/Foto.svg';
+import styles from '../../styles/pages/edit.module.css';
 
 interface PageDescriptionProps {}
 

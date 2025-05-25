@@ -1,8 +1,5 @@
-import { EmptyPage } from "../components/emptyPage";
-
+import { EmptyPage } from '../components/emptyPage';
 
 export const History = () => {
-  return (
-    <EmptyPage />
-  );
-}
+  return <EmptyPage />;
+};

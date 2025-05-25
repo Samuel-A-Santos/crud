@@ -1,4 +1,4 @@
-import styles from "../../styles/components/addEmployee.module.css";
+import styles from '../../styles/components/addEmployee.module.css';
 
 interface HealthCertificateUploadProps {}
 

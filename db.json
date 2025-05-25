@@ -2,24 +2,24 @@
   "employees": [
     {
       "id": "09c49169-ef3a-4785-b221-4c9bbbe375f9",
-      "isActive": true,
-      "name": "Gabriel",
-      "gender": "masculino",
-      "cpf": "123.456.999-10",
-      "birthDate": "26/04/2004",
-      "rg": "12.311.144-4",
-      "role": "Cargo 1",
+      "isActive": false,
+      "name": "samuel",
+      "gender": "feminino",
+      "cpf": "123.456.999-11",
+      "birthDate": "26/04/2002",
+      "rg": "12.311.144-3",
+      "role": "Cargo 2",
       "doesntUseEPI": false,
       "epis": [
         {
-          "activity": "Atividade 1",
-          "type": "Luvas",
-          "caNumber": "1312"
+          "activity": "Atividade 2",
+          "type": "Calçado de segurança",
+          "caNumber": "1314"
         },
         {
-          "activity": "Atividade 3",
-          "type": "Calçado de segurança",
-          "caNumber": "123111"
+          "activity": "Atividade 1",
+          "type": "Capacete",
+          "caNumber": "1315"
         }
       ]
     },
@@ -90,8 +90,8 @@
     },
     {
       "id": "2b795381-3016-4e75-a0ca-2e91002c0e33",
-      "isActive": false,
-      "name": "gaybriel",
+      "isActive": true,
+      "name": "Rafael",
       "gender": "masculino",
       "cpf": "123.112.312-31",
       "birthDate": "13/12/2001",

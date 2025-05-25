@@ -1,8 +1,8 @@
-import { Input } from "../input";
-import { DoubleCheck } from "../doubleCheck";
-import { DropDown } from "../dropDown";
-import styles from "../../styles/components/addEmployee.module.css";
-import type { Gender, ValidationErrors } from "../../types/types";
+import { Input } from '../input';
+import { DoubleCheck } from '../doubleCheck';
+import { DropDown } from '../dropDown';
+import styles from '../../styles/components/addEmployee.module.css';
+import type { Gender, ValidationErrors } from '../../types/types';
 
 interface PersonalInfoSectionProps {
   name: string;
@@ -83,9 +83,9 @@ export const PersonalInfoSection: React.FC<PersonalInfoSectionProps> = ({
           label="Cargo"
           value={role}
           onChange={onRoleChange}
-          options={["Cargo 1", "Cargo 2", "Cargo 3"]}
-          renderOption={(option) => option}
-        //   error={errors.role}
+          options={['Cargo 1', 'Cargo 2', 'Cargo 3']}
+          renderOption={option => option}
+          //   error={errors.role}
         />
       </div>
     </div>

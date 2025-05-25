@@ -1,4 +1,4 @@
-import styles from "../../styles/pages/edit.module.css";
+import styles from '../../styles/pages/edit.module.css';
 
 interface PageNavigationProps {
   currentStep: number;
@@ -14,8 +14,7 @@ export const PageNavigation: React.FC<PageNavigationProps> = ({
   onNextStep,
 }) => {
   const isNextButtonDisabled =
-    currentStep === 9 || 
-    (currentStep < 8 && !isStepCompleted);
+    currentStep === 9 || (currentStep < 8 && !isStepCompleted);
 
   return (
     <div className={styles.stepsButtonsContainer}>
@@ -29,7 +28,7 @@ export const PageNavigation: React.FC<PageNavigationProps> = ({
       <div>
         <button
           className={`${styles.buttonNext} ${
-            currentStep === 9 ? styles.buttonDisabled : ""
+            currentStep === 9 ? styles.buttonDisabled : ''
           }`}
           onClick={onNextStep}
           disabled={isNextButtonDisabled}

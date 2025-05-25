@@ -1,7 +1,7 @@
 .root {
   all: unset;
   background-color: transparent;
-  border: 2px solid #649FBF;
+  border: 2px solid #649fbf;
   width: 16px;
   height: 16px;
   border-radius: 2px;
@@ -23,7 +23,7 @@
 }
 
 .indicator {
-  color: #649FBF;
+  color: #649fbf;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +32,7 @@
 .label {
   margin-left: 10px;
   font-size: 16px;
-  color: #272F33;
+  color: #272f33;
   cursor: pointer;
   user-select: none;
   display: inline-flex;

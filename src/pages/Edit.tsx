@@ -1,35 +1,35 @@
-import { useEffect, useState } from "react";
-import { Header } from "../components/header";
-import { AddEmployee } from "../components/addEmployee";
-import { EmptyPage } from "../components/emptyPage";
-import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
-import { setStepCompleted, nextStep, previousStep } from "../store/appSlice";
+import { useEffect, useState } from 'react';
+import { Header } from '../components/header';
+import { AddEmployee } from '../components/addEmployee';
+import { EmptyPage } from '../components/emptyPage';
+import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
+import { setStepCompleted, nextStep, previousStep } from '../store/appSlice';
 import {
   fetchEmployees,
   createEmployeeThunk,
   updateEmployeeThunk,
   deleteEmployeeThunk,
-} from "../store/employeeThunks";
-import type { Employee } from "../types/types";
-import styles from "../styles/pages/edit.module.css";
-import { PageDescription } from "./EditComponents/PageDescription";
-import { FormAreaHeader } from "./EditComponents/FormAreaHeader";
-import { EmployeeListActions } from "./EditComponents/EmployeeListActions";
-import { EmployeeListSection } from "./EditComponents/EmployeeListSection";
-import { StepCompletionSwitch } from "./EditComponents/StepCompletionSwitch";
-import { PageNavigation } from "./EditComponents/PageNavigation";
+} from '../store/employeeThunks';
+import type { Employee } from '../types/types';
+import styles from '../styles/pages/edit.module.css';
+import { PageDescription } from './EditComponents/PageDescription';
+import { FormAreaHeader } from './EditComponents/FormAreaHeader';
+import { EmployeeListActions } from './EditComponents/EmployeeListActions';
+import { EmployeeListSection } from './EditComponents/EmployeeListSection';
+import { StepCompletionSwitch } from './EditComponents/StepCompletionSwitch';
+import { PageNavigation } from './EditComponents/PageNavigation';
 
 export const Edit = () => {
   const dispatch = useAppDispatch();
 
-  const { currentStep, isStepCompleted } = useAppSelector((state) => state.app);
-  const { employees, loading } = useAppSelector((state) => state.employees);
+  const { currentStep, isStepCompleted } = useAppSelector(state => state.app);
+  const { employees, loading } = useAppSelector(state => state.employees);
 
   const [isAddingEmployee, setIsAddingEmployee] = useState(false);
   const [editingEmployee, setEditingEmployee] = useState<Employee | null>(null);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState(
-    "Usuário excluído com sucesso!"
+    'Usuário excluído com sucesso!'
   );
   const [showOnlyActive, setShowOnlyActive] = useState(false);
 
@@ -49,11 +49,11 @@ export const Edit = () => {
     dispatch(deleteEmployeeThunk(id))
       .unwrap()
       .then(() => {
-        setToastMessage("Usuário excluído com sucesso!");
+        setToastMessage('Usuário excluído com sucesso!');
         setShowToast(true);
       })
       .catch(() => {
-        setToastMessage("Erro ao excluir usuário!");
+        setToastMessage('Erro ao excluir usuário!');
         setShowToast(true);
       });
   };
@@ -64,7 +64,7 @@ export const Edit = () => {
   };
 
   const handleEditEmployeeClick = (id: string) => {
-    const employee = employees.find((e) => e.id === id) || null;
+    const employee = employees.find(e => e.id === id) || null;
     setEditingEmployee(employee);
     setIsAddingEmployee(true);
   };
@@ -84,11 +84,11 @@ export const Edit = () => {
       : createEmployeeThunk(employeeToSave);
 
     const successMessage = editingEmployee
-      ? "Usuário atualizado com sucesso!"
-      : "Usuário adicionado com sucesso!";
+      ? 'Usuário atualizado com sucesso!'
+      : 'Usuário adicionado com sucesso!';
     const errorMessage = editingEmployee
-      ? "Erro ao atualizar usuário!"
-      : "Erro ao adicionar usuário!";
+      ? 'Erro ao atualizar usuário!'
+      : 'Erro ao adicionar usuário!';
 
     dispatch(thunkAction)
       .unwrap()
@@ -105,10 +105,10 @@ export const Edit = () => {
   };
 
   const filteredEmployees = showOnlyActive
-    ? employees.filter((emp) => emp.isActive)
+    ? employees.filter(emp => emp.isActive)
     : employees;
 
-  const activeEmployeesCount = employees.filter((emp) => emp.isActive).length;
+  const activeEmployeesCount = employees.filter(emp => emp.isActive).length;
 
   const renderMainContent = () => {
     if (currentStep > 1) {
@@ -145,16 +145,16 @@ export const Edit = () => {
               />
               <StepCompletionSwitch
                 isStepCompleted={isStepCompleted}
-                onStepCompletedChange={(checked) =>
+                onStepCompletedChange={checked =>
                   dispatch(setStepCompleted(checked))
                 }
               />
             </>
           ) : (
             <div className={styles.addEmployeeForm}>
-              <AddEmployee 
+              <AddEmployee
                 onSave={handleSaveEmployee}
-                onCancel={handleBackToList} 
+                onCancel={handleBackToList}
                 employee={editingEmployee}
               />
             </div>
@@ -168,7 +168,7 @@ export const Edit = () => {
     <div className={styles.container}>
       <Header currentStep={currentStep} isStepCompleted={isStepCompleted} />
       <main className={styles.content}>{renderMainContent()}</main>
-      {(!isAddingEmployee || currentStep > 1) && ( 
+      {(!isAddingEmployee || currentStep > 1) && (
         <div className={styles.footerContainer}>
           <PageNavigation
             currentStep={currentStep}

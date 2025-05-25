@@ -16,7 +16,7 @@
   -moz-appearance: none;
   white-space: nowrap;
   padding: 0 40px;
-  display: inline-block; 
+  display: inline-block;
 }
 
 .button:disabled {

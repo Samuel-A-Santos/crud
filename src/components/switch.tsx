@@ -19,7 +19,8 @@ export const Switch: React.FC<SwitchProps> = ({
 }) => {
   const [uncontrolledChecked, setUncontrolledChecked] = useState(false);
 
-  const checked = controlledChecked !== undefined ? controlledChecked : uncontrolledChecked;
+  const checked =
+    controlledChecked !== undefined ? controlledChecked : uncontrolledChecked;
 
   const handleChange = (checked: boolean) => {
     if (onCheckedChange) {
@@ -31,7 +32,7 @@ export const Switch: React.FC<SwitchProps> = ({
 
   return (
     <div className={styles.switchContainer}>
-      <AntSwitch 
+      <AntSwitch
         checked={checked}
         checkedChildren={checkedLabel}
         unCheckedChildren={uncheckedLabel}

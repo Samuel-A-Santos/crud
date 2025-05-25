@@ -10,7 +10,7 @@ interface AppState {
 const initialState: AppState = {
   currentStep: 1,
   isStepCompleted: false,
-  completedSteps: []
+  completedSteps: [],
 };
 
 export const appSlice = createSlice({
@@ -25,10 +25,10 @@ export const appSlice = createSlice({
         state.isStepCompleted = state.completedSteps.has(action.payload);
       }
     },
-    
+
     setStepCompleted: (state, action: PayloadAction<boolean>) => {
       state.isStepCompleted = action.payload;
-      
+
       if (action.payload) {
         if (Array.isArray(state.completedSteps)) {
           if (!state.completedSteps.includes(state.currentStep)) {
@@ -47,33 +47,38 @@ export const appSlice = createSlice({
         }
       }
     },
-    
-    nextStep: (state) => {
-      if (state.currentStep < 9) { 
+
+    nextStep: state => {
+      if (state.currentStep < 9) {
         state.currentStep += 1;
-        
+
         if (Array.isArray(state.completedSteps)) {
-          state.isStepCompleted = state.completedSteps.includes(state.currentStep);
+          state.isStepCompleted = state.completedSteps.includes(
+            state.currentStep
+          );
         } else if (state.completedSteps) {
           state.isStepCompleted = state.completedSteps.has(state.currentStep);
         }
       }
     },
-    
-    previousStep: (state) => {
+
+    previousStep: state => {
       if (state.currentStep > 1) {
         state.currentStep -= 1;
-        
+
         if (Array.isArray(state.completedSteps)) {
-          state.isStepCompleted = state.completedSteps.includes(state.currentStep);
+          state.isStepCompleted = state.completedSteps.includes(
+            state.currentStep
+          );
         } else {
           state.isStepCompleted = state.completedSteps.has(state.currentStep);
         }
       }
-    }
-  }
+    },
+  },
 });
 
-export const { setCurrentStep, setStepCompleted, nextStep, previousStep } = appSlice.actions;
+export const { setCurrentStep, setStepCompleted, nextStep, previousStep } =
+  appSlice.actions;
 
 export default appSlice.reducer;

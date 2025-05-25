@@ -1,4 +1,4 @@
-import styles from "../../styles/pages/edit.module.css";
+import styles from '../../styles/pages/edit.module.css';
 
 interface FormAreaHeaderProps {
   isAddingEmployee: boolean;
@@ -20,7 +20,7 @@ export const FormAreaHeader: React.FC<FormAreaHeaderProps> = ({
               ←
             </button>
             <h1 className={styles.title}>
-              {editingEmployee ? "Editar Funcionário" : "Adicionar Funcionário"}
+              {editingEmployee ? 'Editar Funcionário' : 'Adicionar Funcionário'}
             </h1>
           </>
         ) : (

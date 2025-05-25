@@ -8,8 +8,8 @@ Aplicativo **React + TypeScript** para gerenciamento de **EPI (Equipamento de Pr
 
 ### ✅ Pré-requisitos
 
-- **Node.js** 18.x ou superior  
-- **npm** 9.x ou superior  
+- **Node.js** 18.x ou superior
+- **npm** 9.x ou superior
 
 ---
 
@@ -20,7 +20,8 @@ Aplicativo **React + TypeScript** para gerenciamento de **EPI (Equipamento de Pr
    ```bash
    git clone https://github.com/seu-usuario/epi-manager.git
    cd epi-manager
-Instale as dependências:
+   Instale as dependências:
+   ```
 
 bash
 Copy

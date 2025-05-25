@@ -1,13 +1,13 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { SideMenu } from "./components/sideMenu";
-import styles from "./App.module.css";
-import Background from "./assets/Elementos de fundo.svg";
-import { History } from "./pages/History";
-import { New } from "./pages/New";
-import { Profile } from "./pages/Profile";
-import { Edit } from "./pages/Edit";
-import { Notification } from "./pages/Notification";
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { SideMenu } from './components/sideMenu';
+import styles from './App.module.css';
+import Background from './assets/Elementos de fundo.svg';
+import { History } from './pages/History';
+import { New } from './pages/New';
+import { Profile } from './pages/Profile';
+import { Edit } from './pages/Edit';
+import { Notification } from './pages/Notification';
 
 function App() {
   return (

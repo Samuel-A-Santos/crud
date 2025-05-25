@@ -7,22 +7,22 @@ import appReducer from './appSlice';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['employees', 'app'] 
+  whitelist: ['employees', 'app'],
 };
 
 const rootReducer = combineReducers({
   employees: employeesReducer,
-  app: appReducer
+  app: appReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
-      serializableCheck: false
-    })
+      serializableCheck: false,
+    }),
 });
 
 export const persistor = persistStore(store);

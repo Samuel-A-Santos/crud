@@ -1,5 +1,5 @@
-import { Switch } from "../switch";
-import styles from "../../styles/components/addEmployee.module.css";
+import { Switch } from '../switch';
+import styles from '../../styles/components/addEmployee.module.css';
 
 interface EmployeeStatusSwitchProps {
   isActive: boolean;

@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
-import styles from "..//styles/components/addEmployee.module.css"; 
-import { validateEmployee } from "../ultils/validation"; 
-import { formatCPF, formatBirthDate, formatRG } from "../ultils/formatters"; 
-import type { Employee, EPI, Gender, ValidationErrors } from "../types/types"; 
-import { EmployeeStatusSwitch } from "./AddEmployeeComponents/EmployeeStatusSwitch";
-import { PersonalInfoSection } from "./AddEmployeeComponents/PersonalInfoSection";
-import { EPIListSection } from "./AddEmployeeComponents/EPIListSection";
-import { HealthCertificateUpload } from "./AddEmployeeComponents/HealthCertificateUpload";
-import { SaveFormButton } from "./AddEmployeeComponents/SaveFormButton";
+import { useState, useEffect } from 'react';
+import styles from '..//styles/components/addEmployee.module.css';
+import { validateEmployee } from '../ultils/validation';
+import { formatCPF, formatBirthDate, formatRG } from '../ultils/formatters';
+import type { Employee, EPI, Gender, ValidationErrors } from '../types/types';
+import { EmployeeStatusSwitch } from './AddEmployeeComponents/EmployeeStatusSwitch';
+import { PersonalInfoSection } from './AddEmployeeComponents/PersonalInfoSection';
+import { EPIListSection } from './AddEmployeeComponents/EPIListSection';
+import { HealthCertificateUpload } from './AddEmployeeComponents/HealthCertificateUpload';
+import { SaveFormButton } from './AddEmployeeComponents/SaveFormButton';
 
 interface AddEmployeeProps {
   onSave?: (employeeData: Employee) => void;
-  onCancel?: () => void; 
+  onCancel?: () => void;
   employee?: Employee | null;
 }
 
@@ -20,12 +20,12 @@ export const AddEmployee: React.FC<AddEmployeeProps> = ({
   employee,
 }) => {
   const [isActive, setIsActive] = useState(employee?.isActive ?? true);
-  const [name, setName] = useState(employee?.name ?? "");
+  const [name, setName] = useState(employee?.name ?? '');
   const [gender, setGender] = useState<Gender>(employee?.gender ?? null);
-  const [cpf, setCpf] = useState(employee?.cpf ?? "");
-  const [birthDate, setBirthDate] = useState(employee?.birthDate ?? "");
-  const [rg, setRg] = useState(employee?.rg ?? "");
-  const [role, setRole] = useState(employee?.role ?? "");
+  const [cpf, setCpf] = useState(employee?.cpf ?? '');
+  const [birthDate, setBirthDate] = useState(employee?.birthDate ?? '');
+  const [rg, setRg] = useState(employee?.rg ?? '');
+  const [role, setRole] = useState(employee?.role ?? '');
   const [doesntUseEPI, setDoesntUseEPI] = useState(
     employee?.doesntUseEPI ?? false
   );
@@ -51,12 +51,21 @@ export const AddEmployee: React.FC<AddEmployeeProps> = ({
   }, [name, gender, cpf, birthDate, rg, role, doesntUseEPI, epis]);
 
   const handleSave = () => {
-    const formDataToValidate = { name, gender, cpf, birthDate, rg, role, doesntUseEPI, epis };
+    const formDataToValidate = {
+      name,
+      gender,
+      cpf,
+      birthDate,
+      rg,
+      role,
+      doesntUseEPI,
+      epis,
+    };
     const validationErrors = validateEmployee(formDataToValidate);
     if (Object.keys(validationErrors).length > 0) {
-        setErrors(validationErrors);
-        setIsFormValid(false);
-        return;
+      setErrors(validationErrors);
+      setIsFormValid(false);
+      return;
     }
 
     const employeeData: Employee = {
@@ -75,7 +84,7 @@ export const AddEmployee: React.FC<AddEmployeeProps> = ({
   };
 
   const handleAddEPI = () => {
-    setEpis([...epis, { activity: "", type: "", caNumber: "" }]);
+    setEpis([...epis, { activity: '', type: '', caNumber: '' }]);
   };
 
   const handleUpdateEPI = (index: number, field: keyof EPI, value: string) => {
@@ -90,19 +99,26 @@ export const AddEmployee: React.FC<AddEmployeeProps> = ({
   };
 
   const handleCPFChange = (value: string) => setCpf(formatCPF(value));
-  const handleBirthDateChange = (value: string) => setBirthDate(formatBirthDate(value));
+  const handleBirthDateChange = (value: string) =>
+    setBirthDate(formatBirthDate(value));
   const handleRGChange = (value: string) => setRg(formatRG(value));
 
   return (
     <div className={styles.container}>
       <EmployeeStatusSwitch isActive={isActive} onCheckedChange={setIsActive} />
       <PersonalInfoSection
-        name={name} onNameChange={setName}
-        gender={gender} onGenderChange={setGender}
-        cpf={cpf} onCpfChange={handleCPFChange}
-        birthDate={birthDate} onBirthDateChange={handleBirthDateChange}
-        rg={rg} onRgChange={handleRGChange}
-        role={role} onRoleChange={setRole}
+        name={name}
+        onNameChange={setName}
+        gender={gender}
+        onGenderChange={setGender}
+        cpf={cpf}
+        onCpfChange={handleCPFChange}
+        birthDate={birthDate}
+        onBirthDateChange={handleBirthDateChange}
+        rg={rg}
+        onRgChange={handleRGChange}
+        role={role}
+        onRoleChange={setRole}
         errors={errors}
       />
       <EPIListSection

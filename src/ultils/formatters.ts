@@ -1,5 +1,5 @@
 export const formatCPF = (value: string): string => {
-  const digits = value.replace(/\D/g, "");
+  const digits = value.replace(/\D/g, '');
 
   const cpfDigits = digits.slice(0, 11);
 
@@ -20,7 +20,7 @@ export const formatCPF = (value: string): string => {
 };
 
 export const formatBirthDate = (value: string): string => {
-  const digits = value.replace(/\D/g, "");
+  const digits = value.replace(/\D/g, '');
 
   const dateDigits = digits.slice(0, 8);
 
@@ -37,7 +37,7 @@ export const formatBirthDate = (value: string): string => {
 };
 
 export const formatRG = (value: string): string => {
-  const chars = value.replace(/[^\dXx]/g, "").toUpperCase();
+  const chars = value.replace(/[^\dXx]/g, '').toUpperCase();
 
   const rgChars = chars.slice(0, 9);
 

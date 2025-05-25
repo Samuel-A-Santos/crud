@@ -9,10 +9,15 @@ interface DoubleCheckProps {
   error?: string;
 }
 
-export const DoubleCheck: React.FC<DoubleCheckProps> = ({ value: controlledValue, onChange, error }) => {
+export const DoubleCheck: React.FC<DoubleCheckProps> = ({
+  value: controlledValue,
+  onChange,
+  error,
+}) => {
   const [uncontrolledValue, setUncontrolledValue] = useState<Gender>(null);
-  
-  const value = controlledValue !== undefined ? controlledValue : uncontrolledValue;
+
+  const value =
+    controlledValue !== undefined ? controlledValue : uncontrolledValue;
 
   const handleSelect = (gender: Gender) => {
     if (onChange) {
@@ -34,7 +39,7 @@ export const DoubleCheck: React.FC<DoubleCheckProps> = ({ value: controlledValue
         </div>
         Feminino
       </button>
-      
+
       <button
         type="button"
         className={`${styles.option} ${value === 'masculino' ? styles.checked : ''}`}

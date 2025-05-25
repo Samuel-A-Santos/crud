@@ -11,13 +11,13 @@
   gap: 8px;
   cursor: pointer;
   font-size: 16px;
-  color: #272F33;
+  color: #272f33;
 }
 
 .radio {
   width: 16px;
   height: 16px;
-  border: 2px solid #649FBF;
+  border: 2px solid #649fbf;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -33,5 +33,5 @@
 }
 
 .checked .innerCircle {
-  background-color: #649FBF;
+  background-color: #649fbf;
 }

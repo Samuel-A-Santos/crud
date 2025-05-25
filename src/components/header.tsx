@@ -1,7 +1,7 @@
-import styles from "../styles/components/header.module.css";
-import ItemDesabled from "../assets/Item desbled.svg";
-import ItemActive from "../assets/Item active.svg";
-import ItemHover from "../assets/Item hover.svg";
+import styles from '../styles/components/header.module.css';
+import ItemDesabled from '../assets/Item desbled.svg';
+import ItemActive from '../assets/Item active.svg';
+import ItemHover from '../assets/Item hover.svg';
 
 interface HeaderProps {
   currentStep: number;
@@ -48,7 +48,7 @@ export const Header = ({ currentStep, isStepCompleted }: HeaderProps) => {
         </div>
         <span
           className={`${styles.completedText} ${
-            shouldShowCompleted ? styles.visible : ""
+            shouldShowCompleted ? styles.visible : ''
           }`}
         >
           Concluído
@@ -61,11 +61,11 @@ export const Header = ({ currentStep, isStepCompleted }: HeaderProps) => {
     <header className={styles.header}>
       <div
         className={`${styles.stepsContainer} ${
-          currentStep > 1 || isStepCompleted ? styles.hasCompleted : ""
+          currentStep > 1 || isStepCompleted ? styles.hasCompleted : ''
         }`}
         style={
           {
-            "--completed-steps": isStepCompleted ? totalSteps : currentStep - 1,
+            '--completed-steps': isStepCompleted ? totalSteps : currentStep - 1,
           } as React.CSSProperties
         }
       >

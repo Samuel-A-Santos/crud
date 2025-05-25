@@ -1,5 +1,5 @@
-import { Button } from "../../components/button";
-import styles from "../../styles/pages/edit.module.css";
+import { Button } from '../../components/button';
+import styles from '../../styles/pages/edit.module.css';
 
 interface EmployeeListActionsProps {
   onAddEmployee: () => void;

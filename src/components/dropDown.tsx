@@ -7,16 +7,16 @@ interface DropDown<T> {
   onChange: (value: T) => void;
   renderOption: (option: T) => string;
   placeholder?: string;
-  label?: string;  
+  label?: string;
 }
 
-export function DropDown<T>({ 
-  options, 
-  value, 
-  onChange, 
+export function DropDown<T>({
+  options,
+  value,
+  onChange,
   renderOption,
-  placeholder = "Selecione uma opção",
-  label 
+  placeholder = 'Selecione uma opção',
+  label,
 }: DropDown<T>) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -29,24 +29,24 @@ export function DropDown<T>({
     <div className={styles.wrapper}>
       {label && <label className={styles.label}>{label}</label>}
       <div className={styles.container}>
-        <button 
-          type="button" 
+        <button
+          type="button"
           className={styles.trigger}
           onClick={() => setIsOpen(!isOpen)}
         >
           <span>{value ? renderOption(value) : placeholder}</span>
-          <svg 
-            className={`${styles.arrow} ${isOpen ? styles.open : ''}`} 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
+          <svg
+            className={`${styles.arrow} ${isOpen ? styles.open : ''}`}
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
           >
-            <path 
-              d="M7 10L12 15L17 10" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
+            <path
+              d="M7 10L12 15L17 10"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
               strokeLinejoin="round"
             />
           </svg>

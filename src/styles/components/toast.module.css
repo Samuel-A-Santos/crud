@@ -12,7 +12,7 @@
 }
 
 .toast {
-  background: #DBDBDB ;
+  background: #dbdbdb;
   border-radius: 16px;
   padding: 28px;
   width: 100%;
@@ -24,7 +24,7 @@
 .message {
   font-size: 20px;
   font-weight: bold;
-  color: #272F33;
+  color: #272f33;
   text-align: start;
   padding-bottom: 5px;
 }
@@ -35,21 +35,20 @@
   top: 24px;
   right: 24px;
   cursor: pointer;
-  color: #649FBF;
+  color: #649fbf;
 }
 
 .okButton {
   all: unset;
   width: 100%;
   background-color: transparent;
-  color: #649FBF;
+  color: #649fbf;
   text-align: center;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
   transition: background-color 0.2s;
 }
-
 
 @keyframes slideIn {
   from {

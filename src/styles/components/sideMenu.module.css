@@ -1,7 +1,7 @@
 .sideMenu {
   width: 56px;
   height: 100vh;
-  background-color: #649FBF;
+  background-color: #649fbf;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,9 +51,9 @@
 }
 
 .logo {
-    width: 56px;
-    height: 50px;
-    margin-top: 50px;
-    background-color: white;
-    margin-bottom: 134px;
+  width: 56px;
+  height: 50px;
+  margin-top: 50px;
+  background-color: white;
+  margin-bottom: 134px;
 }

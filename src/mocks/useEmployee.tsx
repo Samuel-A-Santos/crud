@@ -33,7 +33,7 @@
 //   };
 
 //   const updateEmployee = (updatedEmployee: Employee) => {
-//     setEmployees(prev => 
+//     setEmployees(prev =>
 //       prev.map(emp => emp.id === updatedEmployee.id ? updatedEmployee : emp)
 //     );
 //   };

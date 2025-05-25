@@ -1,5 +1,5 @@
-import { Switch } from "../../components/switch"; 
-import styles from "../../styles/pages/edit.module.css"; 
+import { Switch } from '../../components/switch';
+import styles from '../../styles/pages/edit.module.css';
 
 interface StepCompletionSwitchProps {
   isStepCompleted: boolean;

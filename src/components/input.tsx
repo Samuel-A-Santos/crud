@@ -28,7 +28,8 @@ export const Input: React.FC<InputProps> = ({
     }
   };
 
-  const value = controlledValue !== undefined ? controlledValue : uncontrolledValue;
+  const value =
+    controlledValue !== undefined ? controlledValue : uncontrolledValue;
 
   return (
     <div className={styles.inputContainer}>

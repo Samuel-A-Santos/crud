@@ -24,7 +24,9 @@ export const createEmployee = async (employee: Employee): Promise<Employee> => {
   return response.json();
 };
 
-export const updateEmployeeApi = async (employee: Employee): Promise<Employee> => {
+export const updateEmployeeApi = async (
+  employee: Employee
+): Promise<Employee> => {
   const response = await fetch(`${API_URL}/employees/${employee.id}`, {
     method: 'PUT',
     headers: {

@@ -1,10 +1,10 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   fetchEmployees as fetchEmployeesApi,
   createEmployee as createEmployeeApi,
   updateEmployeeApi,
   deleteEmployeeApi,
-} from "../services/api";
+} from '../services/api';
 import {
   setEmployees,
   addEmployee,
@@ -12,20 +12,20 @@ import {
   deleteEmployee,
   setLoading,
   setError,
-} from "./employeesSlice";
-import type { Employee } from "../types/types";
+} from './employeesSlice';
+import type { Employee } from '../types/types';
 
 export const fetchEmployees = createAsyncThunk(
-  "employees/fetchEmployees",
+  'employees/fetchEmployees',
   async (_, { dispatch }) => {
     try {
-      dispatch(setLoading("pending"));
+      dispatch(setLoading('pending'));
       const employees = await fetchEmployeesApi();
       dispatch(setEmployees(employees));
-      dispatch(setLoading("succeeded"));
+      dispatch(setLoading('succeeded'));
       return employees;
     } catch (error) {
-      dispatch(setLoading("failed"));
+      dispatch(setLoading('failed'));
       dispatch(setError((error as Error).message));
       throw error;
     }
@@ -33,10 +33,10 @@ export const fetchEmployees = createAsyncThunk(
 );
 
 export const createEmployeeThunk = createAsyncThunk(
-  "employees/createEmployee",
+  'employees/createEmployee',
   async (employee: Employee, { dispatch }) => {
     try {
-      dispatch(setLoading("pending"));
+      dispatch(setLoading('pending'));
 
       const employeeToSave = {
         ...employee,
@@ -45,10 +45,10 @@ export const createEmployeeThunk = createAsyncThunk(
 
       const newEmployee = await createEmployeeApi(employeeToSave);
       dispatch(addEmployee(newEmployee));
-      dispatch(setLoading("succeeded"));
+      dispatch(setLoading('succeeded'));
       return newEmployee;
     } catch (error) {
-      dispatch(setLoading("failed"));
+      dispatch(setLoading('failed'));
       dispatch(setError((error as Error).message));
       throw error;
     }
@@ -56,16 +56,16 @@ export const createEmployeeThunk = createAsyncThunk(
 );
 
 export const updateEmployeeThunk = createAsyncThunk(
-  "employees/updateEmployee",
+  'employees/updateEmployee',
   async (employee: Employee, { dispatch }) => {
     try {
-      dispatch(setLoading("pending"));
+      dispatch(setLoading('pending'));
       const updatedEmployee = await updateEmployeeApi(employee);
       dispatch(updateEmployee(updatedEmployee));
-      dispatch(setLoading("succeeded"));
+      dispatch(setLoading('succeeded'));
       return updatedEmployee;
     } catch (error) {
-      dispatch(setLoading("failed"));
+      dispatch(setLoading('failed'));
       dispatch(setError((error as Error).message));
       throw error;
     }
@@ -73,16 +73,16 @@ export const updateEmployeeThunk = createAsyncThunk(
 );
 
 export const deleteEmployeeThunk = createAsyncThunk(
-  "employees/deleteEmployee",
+  'employees/deleteEmployee',
   async (id: string, { dispatch }) => {
     try {
-      dispatch(setLoading("pending"));
+      dispatch(setLoading('pending'));
       await deleteEmployeeApi(id);
       dispatch(deleteEmployee(id));
-      dispatch(setLoading("succeeded"));
+      dispatch(setLoading('succeeded'));
       return id;
     } catch (error) {
-      dispatch(setLoading("failed"));
+      dispatch(setLoading('failed'));
       dispatch(setError((error as Error).message));
       throw error;
     }

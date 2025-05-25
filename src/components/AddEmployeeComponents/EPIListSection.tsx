@@ -1,8 +1,8 @@
-import { Checkbox } from "../checkBox";
-import { Button } from "../button";
-import { EPICard } from "./EPICard";
-import styles from "../../styles/components/addEmployee.module.css";
-import type { EPI } from "../../types/types";
+import { Checkbox } from '../checkBox';
+import { Button } from '../button';
+import { EPICard } from './EPICard';
+import styles from '../../styles/components/addEmployee.module.css';
+import type { EPI } from '../../types/types';
 
 interface EPIListSectionProps {
   epis: EPI[];
@@ -44,8 +44,8 @@ export const EPIListSection: React.FC<EPIListSectionProps> = ({
           ))}
           <Button onClick={onAddEPI} className={styles.addEpiButton}>
             {epis.length > 0
-              ? "Adicionar outra atividade"
-              : "Adicionar atividade"}
+              ? 'Adicionar outra atividade'
+              : 'Adicionar atividade'}
           </Button>
         </>
       )}
