@@ -52,13 +52,13 @@ Edit
 npm run build
 Os arquivos serão gerados no diretório dist.
 
-Visualizar a build localmente:
+🔍 Visualizar a build localmente:
 bash
 Copy
 Edit
 npm run preview
 📁 Estrutura do Projeto
-graphql
+none
 Copy
 Edit
 src/
@@ -71,6 +71,7 @@ src/
 ├── styles/              # Estilos com CSS Modules
 ├── utils/               # Funções utilitárias
 └── main.tsx             # Ponto de entrada da aplicação
+
 🧩 Funcionalidades
 ✅ Gerenciamento de funcionários (ativo/inativo)
 
