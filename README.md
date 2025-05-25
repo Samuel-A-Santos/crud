@@ -52,27 +52,8 @@ Edit
 npm run build
 Os arquivos serão gerados no diretório dist.
 
-🔍 Visualizar a build localmente:
-bash
-Copy
-Edit
-npm run preview
-📁 Estrutura do Projeto
-none
-Copy
-Edit
-src/
-├── assets/              # Recursos estáticos (imagens, ícones)
-├── components/          # Componentes reutilizáveis
-├── features/            # Redux slices e lógica de negócio
-├── pages/               # Páginas principais da aplicação
-├── routes/              # Configuração de rotas
-├── services/            # Comunicação com APIs
-├── styles/              # Estilos com CSS Modules
-├── utils/               # Funções utilitárias
-└── main.tsx             # Ponto de entrada da aplicação
-
 🧩 Funcionalidades
+
 ✅ Gerenciamento de funcionários (ativo/inativo)
 
 👤 Cadastro e edição de informações pessoais
