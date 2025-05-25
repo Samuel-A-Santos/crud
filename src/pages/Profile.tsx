@@ -1,9 +1,5 @@
-import styles from '../styles/pages/profile.module.css';
+import { EmptyPage } from "../components/emptyPage";
 
 export const Profile = () => {
-  return (
-    <div className={styles.title}>
-        Em breve
-    </div>
-  );
-}
+  return <EmptyPage />;
+};

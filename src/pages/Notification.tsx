@@ -1,9 +1,5 @@
-import styles from '../styles/pages/notification.module.css';
+import { EmptyPage } from "../components/emptyPage";
 
 export const Notification = () => {
-  return (
-    <div className={styles.title}>
-        Em breve
-    </div>
-  );
-}
+  return <EmptyPage />;
+};

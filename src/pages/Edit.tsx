@@ -6,6 +6,7 @@ import { EmployeeList } from "../components/employeeList";
 import { Toast } from "../components/toast";
 import { Switch } from "../components/switch";
 import { AddEmployee } from "../components/addEmployee";
+import { EmptyPage } from "../components/emptyPage";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import { setStepCompleted, nextStep, previousStep } from "../store/appSlice";
 import {
@@ -63,7 +64,6 @@ export const Edit = () => {
   const handleEditEmployee = (id: string) => {
     const employee = employees.find((e) => e.id === id) || null;
 
-    // Remove health certificate logic and just set the employee directly
     setEditingEmployee(employee);
     setIsAddingEmployee(true);
   };
@@ -74,7 +74,6 @@ export const Edit = () => {
   };
 
   const handleSaveEmployee = (employeeData: Employee) => {
-    // Remove health certificate from the data or set to null
     const employeeToSave = {
       ...employeeData,
       healthCertificate: null,
@@ -111,10 +110,13 @@ export const Edit = () => {
 
   const activeEmployees = employees.filter((emp) => emp.isActive);
 
-  return (
-    <div className={styles.container}>
-      <Header currentStep={currentStep} isStepCompleted={isStepCompleted} />
-      <main className={styles.content}>
+  const renderContent = () => {
+    if (currentStep > 1) {
+      return <EmptyPage />;
+    }
+
+    return (
+      <>
         <div className={styles.description}>
           <span>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda
@@ -220,28 +222,39 @@ export const Edit = () => {
             </div>
           )}
         </div>
-      </main>
+      </>
+    );
+  };
 
-      {!isAddingEmployee && (
-        <div className={styles.stepsButtonsContainer}>
-          <button
-            className={`${styles.button} ${
-              currentStep === 1 ? styles.buttonDisabled : ""
-            }`}
-            onClick={handlePreviousStep}
-            disabled={currentStep === 1}
-          >
-            Passo anterior
-          </button>
-          <button
-            className={`${styles.button} ${
-              !isStepCompleted ? styles.buttonDisabled : ""
-            }`}
-            onClick={handleNextStep}
-            disabled={!isStepCompleted}
-          >
-            Próximo passo
-          </button>
+  return (
+    <div className={styles.container}>
+      <Header currentStep={currentStep} isStepCompleted={isStepCompleted} />
+      <main className={styles.content}>{renderContent()}</main>
+      {(!isAddingEmployee || currentStep > 1) && (
+        <div className={styles.footerContainer}>
+          <div className={styles.stepsButtonsContainer}>
+            <div>
+              {currentStep > 1 && (
+                <button
+                  className={styles.buttonPrevious}
+                  onClick={handlePreviousStep}
+                >
+                  Passo anterior
+                </button>
+              )}
+              </div>
+              <div>
+              <button
+                className={`${styles.buttonNext} ${
+                  !isStepCompleted ? styles.buttonDisabled : ""
+                }`}
+                onClick={handleNextStep}
+                disabled={!isStepCompleted || currentStep === 9}
+              >
+                Próximo passo
+              </button>
+              </div>
+          </div>
         </div>
       )}
     </div>

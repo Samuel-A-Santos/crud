@@ -68,7 +68,7 @@ export const AddEmployee: React.FC<AddEmployeeProps> = ({
       doesntUseEPI,
       epis,
     };
-    
+
     const validationErrors = validateEmployee(formData);
     setErrors(validationErrors);
     setIsFormValid(Object.keys(validationErrors).length === 0);
@@ -85,10 +85,9 @@ export const AddEmployee: React.FC<AddEmployeeProps> = ({
       doesntUseEPI,
       epis,
     };
-    
+
     const validationErrors = validateEmployee(formData);
     setErrors(validationErrors);
-
 
     const employeeData: Employee = {
       id: employee?.id ?? crypto.randomUUID(),
@@ -124,7 +123,6 @@ export const AddEmployee: React.FC<AddEmployeeProps> = ({
     setEpis(epis.filter((_, i) => i !== index));
   };
 
-  // Input formatters
   const handleCPFChange = (value: string) => {
     const formattedCPF = formatCPF(value);
     setCpf(formattedCPF);
@@ -142,8 +140,6 @@ export const AddEmployee: React.FC<AddEmployeeProps> = ({
 
   return (
     <div className={styles.container}>
-
-      
       <div className={styles.switchContainer}>
         <span>O trabalhador está ativo ou inativo?</span>
         <Switch
@@ -189,10 +185,10 @@ export const AddEmployee: React.FC<AddEmployeeProps> = ({
         </div>
 
         <div className={styles.formRow}>
-          <Input 
-            label="RG" 
-            value={rg} 
-            onChange={handleRGChange} 
+          <Input
+            label="RG"
+            value={rg}
+            onChange={handleRGChange}
             error={errors.rg}
             placeholder="12.345.678-9"
           />
@@ -220,15 +216,6 @@ export const AddEmployee: React.FC<AddEmployeeProps> = ({
           <>
             {epis.map((epi, index) => (
               <div key={index} className={styles.epiCard}>
-                <div className={styles.epiHeader}>
-                  <h4>Quais EPIs o trabalhador usa na atividade?</h4>
-                  <button
-                    onClick={() => handleRemoveEPI(index)}
-                    className={styles.removeButton}
-                  >
-                    ×
-                  </button>
-                </div>
                 <div className={styles.epiContent}>
                   <DropDown
                     label="Selecione a atividade:"
@@ -257,11 +244,18 @@ export const AddEmployee: React.FC<AddEmployeeProps> = ({
                       }
                     />
                   </div>
+                  <div>
+                    <Button onClick={() => handleRemoveEPI(index)}>
+                      Remover EPI
+                    </Button>
+                  </div>
                 </div>
               </div>
             ))}
             <Button onClick={handleAddEPI} className={styles.addEpiButton}>
-              Adicionar outra atividade
+              {epis.length > 0
+                ? "Adicionar outra atividade"
+                : "Adicionar atividade"}
             </Button>
           </>
         )}
@@ -270,7 +264,10 @@ export const AddEmployee: React.FC<AddEmployeeProps> = ({
       {!doesntUseEPI && (
         <div className={styles.fileUpload}>
           <h3>Adicione Atestado de Saúde (opcional):</h3>
-          <p className={styles.disabledText}>Recurso temporariamente desabilitado</p>
+          <label htmlFor="file-upload" className={styles.fileUploadLabel}>
+            Selecionar arquivo
+          </label>
+          <input id="file-upload" type="file" />
         </div>
       )}
 

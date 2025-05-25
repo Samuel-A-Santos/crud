@@ -1,3 +1,4 @@
+import { Switch as AntSwitch } from 'antd';
 import { useState } from 'react';
 import styles from '../styles/components/switch.module.css';
 
@@ -20,29 +21,24 @@ export const Switch: React.FC<SwitchProps> = ({
 
   const checked = controlledChecked !== undefined ? controlledChecked : uncontrolledChecked;
 
-  const handleClick = () => {
-    if (disabled) return;
-    
+  const handleChange = (checked: boolean) => {
     if (onCheckedChange) {
-      onCheckedChange(!checked);
+      onCheckedChange(checked);
     } else {
-      setUncontrolledChecked(!checked);
+      setUncontrolledChecked(checked);
     }
   };
 
   return (
-    <button
-      type="button"
-      role="switch"
-      aria-checked={checked}
-      disabled={disabled}
-      className={`${styles.switch} ${checked ? styles.checked : ''} ${disabled ? styles.disabled : ''}`}
-      onClick={handleClick}
-    >
-      <span className={styles.thumb} />
-      <span className={styles.label}>
-        {checked ? checkedLabel : uncheckedLabel}
-      </span>
-    </button>
+    <div className={styles.switchContainer}>
+      <AntSwitch 
+        checked={checked}
+        checkedChildren={checkedLabel}
+        unCheckedChildren={uncheckedLabel}
+        onChange={handleChange}
+        disabled={disabled}
+        className={`${styles.antSwitch} ${checked ? styles.checked : ''}`}
+      />
+    </div>
   );
 };

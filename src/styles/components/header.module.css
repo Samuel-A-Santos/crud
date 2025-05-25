@@ -36,6 +36,13 @@
   position: relative;
   z-index: 1;
   background: white;
+  height: 120px;
+}
+
+.stepIndicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .stepWrapper {
@@ -82,4 +89,13 @@
   color: #272f33;
   text-align: center;
   margin-top: 4px;
+  height: 20px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.completedText.visible {
+  visibility: visible;
+  opacity: 1;
 }

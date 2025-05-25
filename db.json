@@ -26,11 +26,11 @@
     },
     {
       "id": "2",
-      "isActive": true,
+      "isActive": false,
       "name": "Regina Elisa Souza",
       "gender": "feminino",
       "cpf": "987.654.321-00",
-      "birthDate": "1990-07-22",
+      "birthDate": "12/02/2001",
       "rg": "98.765.432-1",
       "role": "Cargo 3",
       "doesntUseEPI": false,
@@ -44,20 +44,25 @@
       "healthCertificate": null
     },
     {
-      "id": "4",
-      "isActive": false,
-      "name": "Ana Bispo dos Santos",
+      "id": "26c00cb8-5af0-4bab-8a2a-6ad44e1d371a",
+      "isActive": true,
+      "name": "Celina",
       "gender": "feminino",
-      "cpf": "789.123.456-00",
-      "birthDate": "1992-05-18",
-      "rg": "78.912.345-6",
+      "cpf": "123.860.725-31",
+      "birthDate": "05/09/2000",
+      "rg": "12.314.123-1",
       "role": "Cargo 1",
       "doesntUseEPI": false,
       "epis": [
         {
+          "activity": "Atividade 2",
+          "type": "Capacete",
+          "caNumber": "1421"
+        },
+        {
           "activity": "Atividade 1",
-          "type": "Luvas",
-          "caNumber": "789012"
+          "type": "Calçado de segurança",
+          "caNumber": "1332"
         }
       ],
       "healthCertificate": null

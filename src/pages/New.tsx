@@ -1,9 +1,5 @@
-import styles from '../styles/pages/new.module.css';
+import { EmptyPage } from "../components/emptyPage";
 
 export const New = () => {
-  return (
-    <div className={styles.title}>
-        Em breve
-    </div>
-  );
-}
+  return <EmptyPage />;
+};

@@ -7,6 +7,7 @@
 .switchContainer {
   display: flex;
   align-items: center;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.15);
   justify-content: space-between;
   border: solid 1px #649fbf;
   height: 44px;
@@ -16,6 +17,7 @@
 
 .formGrid {
   display: flex;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.15);
   flex-direction: column;
   gap: 24px;
   border: solid 1px #649fbf;
@@ -44,6 +46,10 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #649fbf;
+  border-radius: 10px;
+  padding: 12px;
 }
 
 .epiSection h3 {
@@ -56,18 +62,37 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  border: 1px solid #649fbf;
+  border-radius: 10px;
+  padding: 12px;
 }
 
 .fileUpload h3 {
   font-size: 16px;
   color: #333;
   font-weight: 500;
+  line-height: 0px;
 }
 
 .fileInput {
   border: 1px solid #e5e5e5;
   padding: 8px;
   border-radius: 8px;
+}
+
+.fileUploadLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  border: 1px solid #649fbf;
+  border-radius: 10px;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+input[type="file"] {
+  display: none;
 }
 
 .buttons {
@@ -79,7 +104,7 @@
 
 .epiCard {
   background: #fff;
-  border: 1px solid #649FBF;
+  border: 1px solid #649fbf;
   border-radius: 10px;
   padding: 12px 40px 12px 12px;
   margin-top: 16px;
@@ -95,7 +120,7 @@
 
 .epiHeader h4 {
   font-size: 16px;
-  color:#272F33;
+  color: #272f33;
   font-weight: 500;
   line-height: 0px;
 }
@@ -123,56 +148,30 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
+  margin-bottom: 20px;
 }
 
 .addEpiButton {
   margin-top: 16px;
-  color: #649FBF;
+  color: #649fbf;
   background: none;
-  border: 1px solid #649FBF;
+  border: 1px solid #649fbf;
   width: 100%;
   padding: 12px;
   border-radius: 8px;
 }
 
-
 .healthCertificateSection {
   background: #fff;
-  border: 1px solid #649FBF;
+  border: 1px solid #649fbf;
   border-radius: 10px;
   padding: 12px;
 }
 
 .healthCertificateSection h3 {
   font-size: 16px;
-  color:#272F33;
+  color: #272f33;
   font-weight: 500;
   line-height: 0px;
   padding-bottom: 24px;
-}
-
-.formError {
-  background-color: #ffebee;
-  color: #d32f2f;
-  padding: 12px;
-  border-radius: 4px;
-  margin-bottom: 16px;
-  font-size: 14px;
-  border-left: 4px solid #d32f2f;
-}
-
-.epiError {
-  color: #d32f2f;
-  font-size: 14px;
-  margin-top: 4px;
-}
-
-.errorMessage {
-  color: #d32f2f;
-  font-size: 12px;
-  margin-top: 4px;
-}
-
-.inputError {
-  border-color: #d32f2f !important;
 }
