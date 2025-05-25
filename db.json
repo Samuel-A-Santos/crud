@@ -5,21 +5,16 @@
       "isActive": true,
       "name": "Mucao!",
       "gender": "feminino",
-      "cpf": "123.412.312-31",
+      "cpf": "132.132.132-13",
       "birthDate": "12/03/2003",
       "rg": "12.312.313-2",
       "role": "Cargo 2",
       "doesntUseEPI": false,
       "epis": [
         {
-          "activity": "Atividade 1",
-          "type": "Calçado de segurança",
-          "caNumber": "123456"
-        },
-        {
           "activity": "Atividade 2",
           "type": "Capacete",
-          "caNumber": "123"
+          "caNumber": "12341"
         }
       ],
       "healthCertificate": null

@@ -1,4 +1,3 @@
-// src/utils/validation.ts
 import type { Employee, EPI } from '../components/addEmployee';
 
 export interface ValidationErrors {
@@ -111,7 +110,6 @@ export const validateEmployee = (employee: Partial<Employee>): ValidationErrors 
   const roleError = validateRole(employee.role || '');
   if (roleError) errors.role = roleError;
   
-  // Combine EPI errors
   const epiErrors = validateEPIs(employee.doesntUseEPI || false, employee.epis || []);
   Object.assign(errors, epiErrors);
   

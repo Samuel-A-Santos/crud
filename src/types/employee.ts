@@ -8,7 +8,6 @@ export interface Employee {
   rg: string;
   role: string;
   doesntUseEPI: boolean;
-  // healthCertificate?: null;
   epis: EPI[];
 }
 

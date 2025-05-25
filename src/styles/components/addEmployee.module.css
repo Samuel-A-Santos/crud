@@ -65,6 +65,7 @@
   border: 1px solid #649fbf;
   border-radius: 10px;
   padding: 12px;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.15);
 }
 
 .fileUpload h3 {
@@ -93,13 +94,6 @@
 
 input[type="file"] {
   display: none;
-}
-
-.buttons {
-  display: flex;
-  justify-content: flex-end;
-  gap: 16px;
-  margin-top: 24px;
 }
 
 .epiCard {
@@ -132,10 +126,6 @@ input[type="file"] {
   font-size: 24px;
   cursor: pointer;
   padding: 0;
-}
-
-.removeButton:hover {
-  color: #ff4444;
 }
 
 .epiContent {

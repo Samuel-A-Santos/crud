@@ -5,7 +5,7 @@
 }
 
 .description {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);  
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   background-color: #ffffff;
   border-radius: 20px;
   width: 35%;
@@ -43,7 +43,7 @@
 }
 
 .formHeaderBackground {
-  background-color: #649FBF;
+  background-color: #649fbf;
   width: 100%;
   height: 56px;
   display: flex;
@@ -63,16 +63,16 @@
   margin-top: 8px;
 }
 
-.customButton  {
+.customButton {
   margin: 24px;
   padding: 24px 16px;
   border-radius: 8px;
   background-color: #fff;
   border: none;
-  border: 1px solid #649FBF;
-  color: #649FBF;
+  border: 1px solid #649fbf;
+  color: #649fbf;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .buttonsContainer {
@@ -141,9 +141,10 @@
   padding: 32px 24px 24px 24px;
 }
 
-.buttonNext, .buttonPrevious {
+.buttonNext,
+.buttonPrevious {
   border-radius: 10px;
-  background-color: #649FBF;
+  background-color: #649fbf;
   border: none;
   color: #fff;
   cursor: pointer;
@@ -163,4 +164,72 @@
   bottom: 0;
   left: 0;
   z-index: 10;
+}
+
+.buttonsContainer p {
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 900px) {
+  .content {
+    flex-direction: column;
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .description {
+    width: 100%;
+    height: auto;
+    padding: 16px;
+  }
+
+  .description img {
+    align-self: center;
+  }
+
+  .formContainer {
+    width: 100%;
+  }
+
+  .buttonsContainer {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .buttonGroup {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .switchContainer {
+    padding: 16px;
+    justify-content: center;
+  }
+
+  .stepsButtonsContainer {
+    padding: 12px;
+    max-width: 100%;
+  }
+
+  .buttonNext,
+  .buttonPrevious {
+    padding: 8px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .customButton {
+    margin: 16px;
+    padding: 16px;
+  }
+
+  .employeeListContainer {
+    overflow-x: auto;
+  }
 }

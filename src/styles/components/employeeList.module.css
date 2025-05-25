@@ -127,11 +127,12 @@
 }
 
 .header h2 {
-  color: #272f33;
-  font-size: clamp(18px, 2vw, 24px);
+  color: rgba(112, 112, 112, 1);
+  font-size: 24px;
   margin: 0 0 8px 0;
   white-space: nowrap;
   overflow: hidden;
+  font-weight: 400;
   text-overflow: ellipsis;
 }
 

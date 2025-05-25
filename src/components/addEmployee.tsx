@@ -39,7 +39,6 @@ export interface EPI {
 
 export const AddEmployee: React.FC<AddEmployeeProps> = ({
   onSave,
-  onCancel,
   employee,
 }) => {
   const [isActive, setIsActive] = useState(employee?.isActive ?? true);
@@ -270,17 +269,9 @@ export const AddEmployee: React.FC<AddEmployeeProps> = ({
           <input id="file-upload" type="file" />
         </div>
       )}
-
-      <div className={styles.buttons}>
-        <Button onClick={onCancel}>Cancelar</Button>
-        <Button
-          onClick={handleSave}
-          disabled={!isFormValid}
-          className={!isFormValid ? styles.disabledButton : ""}
-        >
+        <Button onClick={handleSave} disabled={!isFormValid}>
           Salvar
         </Button>
-      </div>
     </div>
   );
 };

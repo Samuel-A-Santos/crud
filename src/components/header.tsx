@@ -19,13 +19,12 @@ export const Header = ({
     const isCompleted = step < currentStep;
     
     let iconSrc;
-    // Modified logic to always show current step as ItemHover even when all are completed
     if (isActive) {
-      iconSrc = ItemHover; // Current step always shows as hover
+      iconSrc = ItemHover;
     } else if (isStepCompleted || isCompleted) {
-      iconSrc = ItemActive; // Completed steps show as active
+      iconSrc = ItemActive;
     } else {
-      iconSrc = ItemDesabled; // Other steps show as disabled
+      iconSrc = ItemDesabled;
     }
 
     const shouldShowCompleted = isCompleted || (isActive && isStepCompleted);

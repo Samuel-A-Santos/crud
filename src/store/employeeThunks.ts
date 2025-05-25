@@ -39,7 +39,6 @@ export const createEmployeeThunk = createAsyncThunk(
     try {
       dispatch(setLoading("pending"));
 
-      // Ensure health certificate is null
       const employeeToSave = {
         ...employee,
         healthCertificate: null,
