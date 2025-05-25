@@ -3,7 +3,7 @@
     {
       "id": "1",
       "isActive": true,
-      "name": "Mucao!",
+      "name": "Samuel",
       "gender": "feminino",
       "cpf": "132.132.132-13",
       "birthDate": "12/03/2003",
@@ -21,7 +21,7 @@
     },
     {
       "id": "2",
-      "isActive": false,
+      "isActive": true,
       "name": "Regina Elisa Souza",
       "gender": "feminino",
       "cpf": "987.654.321-00",
@@ -40,8 +40,8 @@
     },
     {
       "id": "26c00cb8-5af0-4bab-8a2a-6ad44e1d371a",
-      "isActive": true,
-      "name": "Celina",
+      "isActive": false,
+      "name": "Lidia",
       "gender": "feminino",
       "cpf": "123.860.725-31",
       "birthDate": "05/09/2000",

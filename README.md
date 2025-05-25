@@ -1,54 +1,98 @@
-# React + TypeScript + Vite
+# 🦺 Sistema de Gerenciamento de EPI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicativo **React + TypeScript** para gerenciamento de **EPI (Equipamento de Proteção Individual)** de funcionários. Utiliza **Ant Design** para a interface e conta com uma estrutura moderna baseada em Vite.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Primeiros Passos
 
-## Expanding the ESLint configuration
+### ✅ Pré-requisitos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Node.js** 18.x ou superior  
+- **npm** 9.x ou superior  
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Instalação
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Clone o repositório:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+   ```bash
+   git clone https://github.com/seu-usuario/epi-manager.git
+   cd epi-manager
+Instale as dependências:
+
+bash
+Copy
+Edit
+npm install
+▶️ Executando a Aplicação
+A aplicação possui duas partes: o front-end React e um servidor de API mock.
+
+Iniciar o servidor de API mock:
+bash
+Copy
+Edit
+npx json-server --watch db.json --port 3001
+Inicia o servidor de mock na porta 3001.
+
+Iniciar a aplicação React (modo desenvolvimento):
+bash
+Copy
+Edit
+npm run dev
+Inicia a aplicação na porta 5173 com Hot Module Replacement (HMR).
+
+🏗️ Compilação para Produção
+Para gerar os arquivos de produção:
+
+bash
+Copy
+Edit
+npm run build
+Os arquivos serão gerados no diretório dist.
+
+Visualizar a build localmente:
+bash
+Copy
+Edit
+npm run preview
+📁 Estrutura do Projeto
+graphql
+Copy
+Edit
+src/
+├── assets/              # Recursos estáticos (imagens, ícones)
+├── components/          # Componentes reutilizáveis
+├── features/            # Redux slices e lógica de negócio
+├── pages/               # Páginas principais da aplicação
+├── routes/              # Configuração de rotas
+├── services/            # Comunicação com APIs
+├── styles/              # Estilos com CSS Modules
+├── utils/               # Funções utilitárias
+└── main.tsx             # Ponto de entrada da aplicação
+🧩 Funcionalidades
+✅ Gerenciamento de funcionários (ativo/inativo)
+
+👤 Cadastro e edição de informações pessoais
+
+🧾 Rastreamento e controle de EPIs entregues
+
+📱 Design responsivo com Ant Design
+
+🪜 Formulários em múltiplas etapas com progresso visual
+
+🛠️ Tecnologias Utilizadas
+React 19
+
+TypeScript
+
+Redux Toolkit
+
+React Router v7
+
+Ant Design
+
+Vite
+
+CSS Modules
