@@ -10,7 +10,7 @@ Aplicativo **React + TypeScript** para gerenciamento de **EPIS e de funcionário
 1. Clone o repositório:
 
    ```bash
-   git clone git@github.com:Samuel-A-Santos/sea-test.git
+   git clone git@github.com:Samuel-A-Santos/crud.git
    cd sea-test
    Instale as dependências:
    npm install 
