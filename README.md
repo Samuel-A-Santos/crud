@@ -1,6 +1,5 @@
-# Sea Technical Test
+# CRUD
 
-Um teste tecnico para a empresa Sea Tecnologia
 
 Aplicativo **React + TypeScript** para gerenciamento de **EPIS e de funcionários**. Utiliza **Ant Design** para a interface e conta com uma estrutura moderna baseada em Vite.
 
