@@ -2,7 +2,7 @@
   "employees": [
     {
       "id": "09c49169-ef3a-4785-b221-4c9bbbe375f9",
-      "isActive": false,
+      "isActive": true,
       "name": "samuel",
       "gender": "feminino",
       "cpf": "123.456.999-11",
